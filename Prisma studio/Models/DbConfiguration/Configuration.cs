@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelOazis.Models.DbConfiguration
+namespace Prisma_studio.Models.DbConfiguration
 {
     public class Configuration
     {

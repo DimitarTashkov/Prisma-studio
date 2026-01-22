@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelOazis.Common.Constants
+namespace Prisma_studio.Common.Constants
 {
     public static class ValidationConstants
     {

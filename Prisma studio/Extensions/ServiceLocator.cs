@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelOazis.Extensions
+namespace Prisma_studio.Extensions
 {
     public static class ServiceLocator
     {

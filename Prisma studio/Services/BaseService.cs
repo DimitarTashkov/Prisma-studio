@@ -1,4 +1,4 @@
-﻿using HotelOazis.Services.Interfaces;
+﻿using Prisma_studio.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelOazis.Services
+namespace Prisma_studio.Services
 {
     public class BaseService
     {

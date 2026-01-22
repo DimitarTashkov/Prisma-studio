@@ -1,6 +1,6 @@
-﻿using HotelOazis.Models.DbConfiguration;
-using HotelOazis.Services.Interfaces;
-using HotelOazis.Services;
+﻿using Prisma_studio.Models.DbConfiguration;
+using Prisma_studio.Services.Interfaces;
+using Prisma_studio.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -8,9 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Fitness.Services;
 
-namespace HotelOazis.Extensions
+namespace Prisma_studio.Extensions
 {
     public static class ServiceRegistration
     {
@@ -20,9 +19,6 @@ namespace HotelOazis.Extensions
                 options.UseSqlServer(Configuration.ConnectionString));
 
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IRoomService, RoomService>();
-            services.AddScoped<IFacilityService, FacilityService>();
-            services.AddScoped<IReviewService, ReviewService>();
 
             return services;
         }

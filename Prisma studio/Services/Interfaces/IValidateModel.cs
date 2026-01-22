@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelOazis.Services.Interfaces
+namespace Prisma_studio.Services.Interfaces
 {
     public interface IValidateModel
     {

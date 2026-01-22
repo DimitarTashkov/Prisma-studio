@@ -1,15 +1,16 @@
-﻿using HotelOazis.DTOs.User;
-using HotelOazis.Models;
-using HotelOazis.Models.DbConfiguration;
-using HotelOazis.Services.Interfaces;
+﻿using Prisma_studio.DTOs.User;
+using Prisma_studio.Models;
+using Prisma_studio.Models.DbConfiguration;
+using Prisma_studio.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Prisma_studio.Services;
 
-namespace HotelOazis.Services
+namespace Prisma_studio.Services
 {
     public class UserService : BaseService ,IUserService
     {

@@ -1,5 +1,5 @@
-﻿using HotelOazis.DTOs.User;
-using HotelOazis.Models;
+﻿using Prisma_studio.DTOs.User;
+using Prisma_studio.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelOazis.Services.Interfaces
+namespace Prisma_studio.Services.Interfaces
 {
     public interface IUserService : IValidateModel
     {

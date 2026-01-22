@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelOazis.Models
+namespace Prisma_studio.Models
 {
     [PrimaryKey(nameof(UserId),nameof(RoleId))]
     public class UserRole

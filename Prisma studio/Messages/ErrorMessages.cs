@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelOazis.Common.Messages
+namespace Prisma_studio.Common.Messages
 {
     public static class ErrorMessages
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelOazis.Utilities
+namespace Prisma_studio.Utilities
 {
     public static class EventsEffects
     {

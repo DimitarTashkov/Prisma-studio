@@ -1,5 +1,5 @@
-using HotelOazis.Extensions;
-using HotelOazis.Services.Interfaces;
+using Prisma_studio.Extensions;
+using Prisma_studio.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualBasic.Logging;
 using System.Globalization;

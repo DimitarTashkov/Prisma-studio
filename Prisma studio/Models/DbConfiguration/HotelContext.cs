@@ -1,6 +1,4 @@
-﻿using HotelOazis.Models.Enumerations;
-using HotelOazis.Properties;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +6,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelOazis.Models.DbConfiguration
+namespace Prisma_studio.Models.DbConfiguration
 {
     public class HotelContext : DbContext
     {

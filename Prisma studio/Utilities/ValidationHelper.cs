@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Fitness.Utilities
+namespace Prisma_studio.Utilities
 {
     public class ValidationHelper
     {

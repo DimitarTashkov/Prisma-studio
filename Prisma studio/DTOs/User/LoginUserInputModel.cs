@@ -6,31 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 using static Prisma_studio.Common.Constants.ValidationConstants.UserConstants;
+using static Prisma_studio.Common.Messages.ErrorMessages.UserMessages;
 
-namespace Prisma_studio.Models
+namespace Prisma_studio.DTOs.User
 {
-    public class User
+    public class LoginUserInputModel
     {
-        [Key]
-        public Guid Id { get; set; } 
-
-        [Required]
+        [Required(ErrorMessage = UsernameIsRequired)]
+        [MinLength(NameMinLength)]
         [MaxLength(NameMaxLength)]
         public string Username { get; set; } = null!;
 
-        [Required]
+        [Required(ErrorMessage = PasswordIsRequired)]
+        [MinLength(PasswordMinLength)]
         [MaxLength(PasswordMaxLength)]
         public string Password { get; set; } = null!;
-        public int? Age { get; set; }
-
-        [Required]
-        public string Email { get; set; } = null!;
-
-        [Required]
-        public string AvatarUrl { get; set; } = null!;
-
-        public HashSet<UserRole> UsersRoles { get; set; }
-        = new HashSet<UserRole>();
-
     }
 }

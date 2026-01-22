@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelOazis.Models
+namespace Prisma_studio.Models
 {
     public class Role
     {

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Fitness.Utilities
+namespace Prisma_studio.Utilities
 {
     public class RoundPictureBox : PictureBox
     {

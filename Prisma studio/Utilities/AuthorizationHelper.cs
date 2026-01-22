@@ -1,12 +1,12 @@
 ﻿using HotelOazis.Services;
-using HotelOazis.Services.Interfaces;
+using Prisma_studio.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelOazis.Utilities
+namespace Prisma_studio.Utilities
 {
     public class AuthorizationHelper
     {
