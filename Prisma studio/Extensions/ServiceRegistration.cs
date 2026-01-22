@@ -23,6 +23,8 @@ namespace Prisma_studio.Extensions
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IShopService, ShopService>();
             services.AddScoped<IPhotoServiceManager, PhotoServiceManager>();
+            services.AddScoped<ISessionService, SessionService>();
+
 
 
             return services;
