@@ -1,9 +1,10 @@
 ﻿using Prisma_studio.Data.Models;
+using Prisma_studio.Models;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PhotoStudio.Data.Models
+namespace Prisma_studio.Data.Models
 {
     public class PhotoSession
     {
