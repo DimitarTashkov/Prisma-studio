@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Prisma_studio.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Prisma_studio.Models.DbConfiguration
     {
         public static async Task SeedAdminUserAsync()
         {
-            using (var context = new HotelContext())
+            using (var context = new PrismContext())
             {
                 var adminRole = await context.Roles.FirstOrDefaultAsync(r => r.Name == "Admin");
 

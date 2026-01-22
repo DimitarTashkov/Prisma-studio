@@ -9,7 +9,7 @@ namespace Prisma_studio.Data.Models
     public class PhotoSession
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public DateTime SessionDate { get; set; } // Дата на снимките
@@ -23,14 +23,14 @@ namespace Prisma_studio.Data.Models
 
         // Връзка с Потребител
         [Required]
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
 
         [ForeignKey(nameof(UserId))]
         public virtual User User { get; set; }
 
         // Връзка с Услуга
         [Required]
-        public int PhotoServiceId { get; set; }
+        public Guid PhotoServiceId { get; set; }
 
         [ForeignKey(nameof(PhotoServiceId))]
         public virtual PhotoService PhotoService { get; set; }

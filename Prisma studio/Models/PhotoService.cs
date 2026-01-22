@@ -8,7 +8,7 @@ namespace Prisma_studio.Data.Models // Смени namespace-а с твоя
     public class PhotoService
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [MaxLength(100)]

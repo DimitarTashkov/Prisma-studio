@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prisma_studio.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -31,6 +32,10 @@ namespace Prisma_studio.Models
 
         public HashSet<UserRole> UsersRoles { get; set; }
         = new HashSet<UserRole>();
+
+        public virtual ICollection<PhotoSession> PhotoSessions { get; set; } = new HashSet<PhotoSession>();
+        public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
+
 
     }
 }

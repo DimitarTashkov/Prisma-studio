@@ -1,4 +1,4 @@
-﻿using HotelOazis.Services;
+﻿using Prisma_studio.Services;
 using Prisma_studio.Services.Interfaces;
 using System;
 using System.Collections.Generic;

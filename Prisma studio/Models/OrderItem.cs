@@ -7,13 +7,13 @@ namespace Prisma_studio.Data.Models
     public class OrderItem
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        public int OrderId { get; set; }
+        public Guid OrderId { get; set; }
         [ForeignKey(nameof(OrderId))]
         public virtual Order Order { get; set; }
 
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
         [ForeignKey(nameof(ProductId))]
         public virtual Product Product { get; set; }
 

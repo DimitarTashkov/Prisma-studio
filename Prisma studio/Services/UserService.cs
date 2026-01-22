@@ -9,16 +9,17 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Prisma_studio.Services;
+using Prisma_studio.Data;
 
 namespace Prisma_studio.Services
 {
     public class UserService : BaseService ,IUserService
     {
-        private readonly HotelContext dbContext;
+        private readonly PrismContext dbContext;
 
         private User? loggedInUser;
 
-        public UserService(HotelContext dbContext)
+        public UserService(PrismContext dbContext)
         {
             this.dbContext = dbContext;
         }

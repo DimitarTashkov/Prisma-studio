@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Prisma_studio.Data;
 
 namespace Prisma_studio.Extensions
 {
@@ -15,7 +16,7 @@ namespace Prisma_studio.Extensions
     {
         public static IServiceCollection AddHotelServices(this IServiceCollection services)
         {
-            services.AddDbContext<HotelContext>(options =>
+            services.AddDbContext<PrismContext>(options =>
                 options.UseSqlServer(Configuration.ConnectionString));
 
             services.AddScoped<IUserService, UserService>();
