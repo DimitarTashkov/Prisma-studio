@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PhotoStudio.Services
+namespace Prisma_studio.Services
 {
     public class ShopService : BaseService, IShopService
     {
