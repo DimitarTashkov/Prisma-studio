@@ -19,5 +19,7 @@ namespace Prisma_studio.Services.Interfaces
 
         // Генериране на фактура
         string GenerateInvoiceText(Guid orderId);
+        void UpdateProduct(Product product);
+        void AddProduct(Product product);
     }
 }

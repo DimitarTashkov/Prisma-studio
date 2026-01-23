@@ -57,6 +57,26 @@ namespace Prisma_studio.Services
                 this.context.SaveChanges();
             }
         }
+        public void UpdateProduct(Product product)
+        {
+            // Важно: Update в EF Core понякога е трики, това е най-сигурният начин:
+            var existing = context.Products.Find(product.Id);
+            if (existing != null)
+            {
+                existing.Name = product.Name;
+                existing.Price = product.Price;
+                existing.StockQuantity = product.StockQuantity;
+                existing.Description = product.Description;
+                existing.ImageUrl = product.ImageUrl; // Ако се е сменила снимката
+
+                context.SaveChanges();
+            }
+        }
+        public void AddProduct(Product product)
+        {
+            context.Products.Add(product);
+            context.SaveChanges();
+        }
 
         public void UpdateStock(Guid productId, int newQuantity)
         {
