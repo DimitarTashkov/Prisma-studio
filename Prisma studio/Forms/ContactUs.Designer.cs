@@ -1,4 +1,4 @@
-﻿namespace HotelOazis.Forms
+﻿namespace Prisma_studio.Forms
 {
     partial class ContactUs
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactUs));
-            roundPictureBox1 = new Fitness.Utilities.RoundPictureBox();
+            roundPictureBox1 = new Prisma_studio.Utilities.RoundPictureBox();
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
             Rooms = new ToolStripMenuItem();
@@ -54,6 +54,7 @@
             // 
             menu.BackColor = SystemColors.ScrollBar;
             resources.ApplyResources(menu, "menu");
+            menu.ImageScalingSize = new Size(20, 20);
             menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, Users, Reservations, MyReservations });
             menu.Name = "menu";
             // 
@@ -113,12 +114,14 @@
             // 
             resources.ApplyResources(label2, "label2");
             label2.BackColor = Color.Transparent;
+            label2.ForeColor = SystemColors.ButtonHighlight;
             label2.Name = "label2";
             // 
             // ContactUs
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Prisma_studio.Properties.Resources.appbackground;
             Controls.Add(label2);
             Controls.Add(roundPictureBox1);
             Controls.Add(menu);
@@ -133,7 +136,7 @@
 
         #endregion
 
-        private Fitness.Utilities.RoundPictureBox roundPictureBox1;
+        private Prisma_studio.Utilities.RoundPictureBox roundPictureBox1;
         private MenuStrip menu;
         private ToolStripMenuItem Home;
         private ToolStripMenuItem Rooms;

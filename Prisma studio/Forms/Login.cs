@@ -1,15 +1,16 @@
-﻿using Fitness.Utilities;
-using HotelOazis.Common.Constants;
-using HotelOazis.DTOs.User;
-using HotelOazis.Models.DbConfiguration;
-using HotelOazis.Services.Interfaces;
-using HotelOazis.Utilities;
+﻿using Prisma_studio.Utilities;
+using Prisma_studio.Common.Constants;
+using Prisma_studio.DTOs.User;
+using Prisma_studio.Models.DbConfiguration;
+using Prisma_studio.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-using static HotelOazis.Common.Constants.ValidationConstants.UserConstants;
-using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
+using static Prisma_studio.Common.Constants.ValidationConstants.UserConstants;
+using static Prisma_studio.Utilities.DynamicContentTranslator.EntitiesTranslation;
 
-namespace HotelOazis.Forms
+using Prisma_studio;
+
+namespace Prisma_studio.Forms
 {
     public partial class Login : Form
     {
@@ -126,18 +127,5 @@ namespace HotelOazis.Forms
 
         }
 
-        private void bgFlagBox_Click(object sender, EventArgs e)
-        {
-            LanguageChanger.ChangeLanguage("bg-BG");
-            Login loginForm = new Login(userService);
-            Program.SwitchMainForm(loginForm);
-        }
-
-        private void engFlagBox_Click(object sender, EventArgs e)
-        {
-            LanguageChanger.ChangeLanguage("en-US");
-            Login loginForm = new Login(userService);
-            Program.SwitchMainForm(loginForm);
-        }
     }
 }

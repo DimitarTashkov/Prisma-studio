@@ -1,4 +1,4 @@
-﻿namespace HotelOazis.Forms
+﻿namespace Prisma_studio.Forms
 {
     partial class Login
     {
@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             formPanel = new Panel();
-            pictureBox4 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
             label8 = new Label();
             label7 = new Label();
             label4 = new Label();
@@ -51,21 +47,14 @@
             logo = new PictureBox();
             label3 = new Label();
             formPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             SuspendLayout();
             // 
             // formPanel
             // 
             formPanel.BackColor = Color.White;
+            formPanel.BackgroundImage = Prisma_studio.Properties.Resources.gradient_img__4_;
             resources.ApplyResources(formPanel, "formPanel");
-            formPanel.Controls.Add(pictureBox4);
-            formPanel.Controls.Add(pictureBox3);
-            formPanel.Controls.Add(pictureBox2);
-            formPanel.Controls.Add(pictureBox1);
             formPanel.Controls.Add(label8);
             formPanel.Controls.Add(label7);
             formPanel.Controls.Add(label4);
@@ -82,34 +71,6 @@
             formPanel.Controls.Add(usernameLabel);
             formPanel.Controls.Add(logo);
             formPanel.Name = "formPanel";
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.BackColor = Color.Transparent;
-            resources.ApplyResources(pictureBox4, "pictureBox4");
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = Color.Transparent;
-            resources.ApplyResources(pictureBox3, "pictureBox3");
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.Transparent;
-            resources.ApplyResources(pictureBox2, "pictureBox2");
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            resources.ApplyResources(pictureBox1, "pictureBox1");
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.TabStop = false;
             // 
             // label8
             // 
@@ -222,6 +183,7 @@
             // logo
             // 
             logo.BackColor = Color.Transparent;
+            logo.BackgroundImage = Prisma_studio.Properties.Resources.logo;
             resources.ApplyResources(logo, "logo");
             logo.Name = "logo";
             logo.TabStop = false;
@@ -238,16 +200,13 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Prisma_studio.Properties.Resources.appbackground;
             Controls.Add(formPanel);
             Controls.Add(label3);
             Name = "Login";
             Load += Login_Load;
             formPanel.ResumeLayout(false);
             formPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             ResumeLayout(false);
         }
@@ -269,11 +228,7 @@
         private Label label3;
         private Label label6;
         private Label label4;
-        private PictureBox pictureBox1;
         private Label label8;
         private Label label7;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox4;
     }
 }

@@ -1,34 +1,30 @@
-﻿using Fitness.Utilities;
-using HotelOazis.Common.Constants;
-using HotelOazis.DTOs.User;
-using HotelOazis.Extensions;
-using HotelOazis.Models;
-using HotelOazis.Services.Interfaces;
-using HotelOazis.Utilities;
+﻿using Prisma_studio.Utilities;
+using Prisma_studio.Common.Constants;
+using Prisma_studio.DTOs.User;
+using Prisma_studio.Extensions;
+using Prisma_studio.Models;
+using Prisma_studio.Services.Interfaces;
+using Prisma_studio.Utilities;
 using Microsoft.EntityFrameworkCore;
-using static HotelOazis.Common.Constants.ValidationConstants.UserConstants;
-using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
-using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
+using static Prisma_studio.Common.Constants.ValidationConstants.UserConstants;
+using static Prisma_studio.Common.Constants.ValidationConstants.InputConstants;
+using static Prisma_studio.Utilities.DynamicContentTranslator.EntitiesTranslation;
+using Prisma_studio;
 
-namespace HotelOazis.Forms
+namespace Prisma_studio.Forms
 {
     public partial class Profile : Form
     {
         private User activeUser;
         private Guid userId;
-        private readonly IFacilityService facilityService;
         private readonly IUserService userService;
-        private readonly IReviewService reviewService;
-        private readonly IRoomService roomService;
+
 
         public Profile(IUserService userService, Guid userId)
         {
             InitializeComponent();
             this.userService = userService;
             this.userId = userId;
-            this.facilityService = ServiceLocator.GetService<IFacilityService>();
-            this.reviewService = ServiceLocator.GetService<IReviewService>();
-            this.roomService = ServiceLocator.GetService<IRoomService>();
 
             ApplyStyles();
         }
@@ -283,31 +279,31 @@ namespace HotelOazis.Forms
             switch (formName)
             {
                 case "Rooms":
-                    form = new Rooms(roomService, userService);
+                    //form = new Rooms(roomService, userService);
                     break;
                 case "Services":
-                    form = new Services(facilityService, userService);
+                    //form = new Services(facilityService, userService);
                     break;
                 case "Reviews":
-                    form = new Reviews(reviewService, userService);
+                    //form = new Reviews(reviewService, userService);
                     break;
                 case "Profile":
-                    form = new Profile(userService,activeUser.Id);
+                    //form = new Profile(userService,activeUser.Id);
                     break;
                 case "Users":
-                    form = new Users(userService);
+                    //form = new Users(userService);
                     break;
                 case "MyReservations":
-                    form = new Reservations(userService, roomService);
+                    //form = new Reservations(userService, roomService);
                     break;
                 case "Reservations":
-                    form = new Reservations(userService, roomService);
+                    //form = new Reservations(userService, roomService);
                     break;
                 case "Home":
-                    form = new Index(userService);
+                    //form = new Index(userService);
                     break;
                 default:
-                    form = new Index(userService);
+                    //form = new Index(userService);
                     break;
             }
             Program.SwitchMainForm(form);

@@ -1,4 +1,4 @@
-﻿namespace HotelOazis.Forms
+﻿namespace Prisma_studio.Forms
 {
     partial class Users
     {
@@ -39,7 +39,7 @@
             label1 = new Label();
             dateHeader = new Label();
             arriveHeader = new Label();
-            roundPictureBox1 = new Fitness.Utilities.RoundPictureBox();
+            roundPictureBox1 = new Prisma_studio.Utilities.RoundPictureBox();
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
             Rooms = new ToolStripMenuItem();
@@ -211,7 +211,7 @@
         private Label label1;
         private Label dateHeader;
         private Label arriveHeader;
-        private Fitness.Utilities.RoundPictureBox roundPictureBox1;
+        private Prisma_studio.Utilities.RoundPictureBox roundPictureBox1;
         private MenuStrip menu;
         private ToolStripMenuItem Home;
         private ToolStripMenuItem Rooms;

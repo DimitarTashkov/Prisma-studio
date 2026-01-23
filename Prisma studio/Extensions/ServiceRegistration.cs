@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using PhotoStudio.Services;
+using Prisma_studio.Services;
 using Prisma_studio.Data;
 using Prisma_studio.Models.DbConfiguration;
 using Prisma_studio.Services;

@@ -1,4 +1,4 @@
-﻿namespace HotelOazis.Forms
+﻿namespace Prisma_studio.Forms
 {
     partial class Register
     {
@@ -37,7 +37,7 @@
             usernameErrors = new Label();
             disclaimer = new Label();
             navigationButton = new Button();
-            profilePicture = new Fitness.Utilities.RoundPictureBox();
+            profilePicture = new Prisma_studio.Utilities.RoundPictureBox();
             registerButton = new Button();
             uploadButton = new Button();
             ageField = new TextBox();
@@ -58,6 +58,7 @@
             // formPanel
             // 
             formPanel.BackColor = SystemColors.Control;
+            formPanel.BackgroundImage = Prisma_studio.Properties.Resources.gradient_img__4_;
             resources.ApplyResources(formPanel, "formPanel");
             formPanel.Controls.Add(pfpErrorMessages);
             formPanel.Controls.Add(ageErrors);
@@ -208,6 +209,7 @@
             // logo
             // 
             logo.BackColor = Color.Transparent;
+            logo.BackgroundImage = Prisma_studio.Properties.Resources.logo;
             resources.ApplyResources(logo, "logo");
             logo.Name = "logo";
             logo.TabStop = false;
@@ -222,6 +224,7 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Prisma_studio.Properties.Resources.appbackground;
             Controls.Add(formPanel);
             Name = "Register";
             Load += Register_Load;
@@ -237,7 +240,7 @@
         private Panel formPanel;
         private Label disclaimer;
         private Button navigationButton;
-        private Fitness.Utilities.RoundPictureBox profilePicture;
+        private Prisma_studio.Utilities.RoundPictureBox profilePicture;
         private Button registerButton;
         private Button uploadButton;
         private TextBox ageField;

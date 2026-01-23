@@ -1,13 +1,14 @@
-﻿using Fitness.Utilities;
-using HotelOazis.DTOs.User;
-using HotelOazis.Services.Interfaces;
-using HotelOazis.Utilities;
-using static HotelOazis.Common.Constants.ValidationConstants.UserConstants;
-using static HotelOazis.Common.Constants.ValidationConstants.InputConstants;
-using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
+﻿using Prisma_studio.Utilities;
+using Prisma_studio.DTOs.User;
+using Prisma_studio.Services.Interfaces;
+using Prisma_studio.Utilities;
+using static Prisma_studio.Common.Constants.ValidationConstants.UserConstants;
+using static Prisma_studio.Common.Constants.ValidationConstants.InputConstants;
+using static Prisma_studio.Utilities.DynamicContentTranslator.EntitiesTranslation;
+using Prisma_studio;
 
 
-namespace HotelOazis.Forms
+namespace Prisma_studio.Forms
 {
     public partial class Register : Form
     {

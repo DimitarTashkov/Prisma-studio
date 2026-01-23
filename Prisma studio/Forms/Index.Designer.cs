@@ -1,4 +1,4 @@
-﻿namespace HotelOazis.Forms
+﻿namespace Prisma_studio.Forms
 {
     partial class Index
     {
@@ -36,20 +36,18 @@
             pictureBox1 = new PictureBox();
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
-            Rooms = new ToolStripMenuItem();
+            Store = new ToolStripMenuItem();
             Services = new ToolStripMenuItem();
             Reviews = new ToolStripMenuItem();
             Users = new ToolStripMenuItem();
             Reservations = new ToolStripMenuItem();
             MyReservations = new ToolStripMenuItem();
-            roundPictureBox1 = new Fitness.Utilities.RoundPictureBox();
             aboutUs = new Label();
             contactUs = new Label();
             welcomeMessage = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)roundPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // footer
@@ -77,12 +75,14 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Image = Prisma_studio.Properties.Resources.photography;
             resources.ApplyResources(pictureBox2, "pictureBox2");
             pictureBox2.Name = "pictureBox2";
             pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = Prisma_studio.Properties.Resources.store;
             resources.ApplyResources(pictureBox1, "pictureBox1");
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;
@@ -91,7 +91,8 @@
             // 
             menu.BackColor = SystemColors.ScrollBar;
             resources.ApplyResources(menu, "menu");
-            menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, Users, Reservations, MyReservations });
+            menu.ImageScalingSize = new Size(20, 20);
+            menu.Items.AddRange(new ToolStripItem[] { Home, Store, Services, Reviews, Users, Reservations, MyReservations });
             menu.Name = "menu";
             // 
             // Home
@@ -100,13 +101,13 @@
             resources.ApplyResources(Home, "Home");
             Home.Click += menu_ItemClicked;
             // 
-            // Rooms
+            // Store
             // 
-            Rooms.ForeColor = SystemColors.ActiveCaptionText;
-            Rooms.Name = "Rooms";
-            Rooms.Padding = new Padding(4, 0, 4, 5);
-            resources.ApplyResources(Rooms, "Rooms");
-            Rooms.Click += menu_ItemClicked;
+            Store.ForeColor = SystemColors.ActiveCaptionText;
+            Store.Name = "Store";
+            Store.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Store, "Store");
+            Store.Click += menu_ItemClicked;
             // 
             // Services
             // 
@@ -146,14 +147,6 @@
             MyReservations.Padding = new Padding(4, 0, 4, 5);
             MyReservations.Click += menu_ItemClicked;
             // 
-            // roundPictureBox1
-            // 
-            roundPictureBox1.BackColor = Color.Transparent;
-            resources.ApplyResources(roundPictureBox1, "roundPictureBox1");
-            roundPictureBox1.Name = "roundPictureBox1";
-            roundPictureBox1.TabStop = false;
-            roundPictureBox1.Click += roundPictureBox1_Click;
-            // 
             // aboutUs
             // 
             resources.ApplyResources(aboutUs, "aboutUs");
@@ -180,10 +173,10 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Prisma_studio.Properties.Resources.gradient_img__4_;
             Controls.Add(welcomeMessage);
             Controls.Add(contactUs);
             Controls.Add(aboutUs);
-            Controls.Add(roundPictureBox1);
             Controls.Add(footer);
             Controls.Add(serviceButton);
             Controls.Add(roomsButton);
@@ -197,7 +190,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             menu.ResumeLayout(false);
             menu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)roundPictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -210,12 +202,11 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private MenuStrip menu;
-        private ToolStripMenuItem Rooms;
+        private ToolStripMenuItem Store;
         private ToolStripMenuItem Services;
         private ToolStripMenuItem Reviews;
         private ToolStripMenuItem Users;
         private ToolStripMenuItem MyReservations;
-        private Fitness.Utilities.RoundPictureBox roundPictureBox1;
         private ToolStripMenuItem Reservations;
         private ToolStripMenuItem Home;
         private Label aboutUs;

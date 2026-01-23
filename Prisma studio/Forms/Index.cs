@@ -1,11 +1,12 @@
-﻿using HotelOazis.Extensions;
-using HotelOazis.Models;
-using HotelOazis.Services.Interfaces;
-using HotelOazis.Utilities;
+﻿using Prisma_studio.Extensions;
+using Prisma_studio.Models;
+using Prisma_studio.Services.Interfaces;
+using Prisma_studio.Utilities;
+using Prisma_studio;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace HotelOazis.Forms
+namespace Prisma_studio.Forms
 {
     public partial class Index : Form
     {

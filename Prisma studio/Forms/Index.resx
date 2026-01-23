@@ -126,10 +126,14 @@
     <value>Verdana, 11.25pt, style=Italic</value>
   </data>
   <data name="footer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 409</value>
+    <value>0, 545</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="footer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="footer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>815, 39</value>
+    <value>931, 52</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="footer.TabIndex" type="System.Int32, mscorlib">
@@ -148,7 +152,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;footer.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="serviceButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -157,16 +161,19 @@
     <value>Verdana, 12pt, style=Bold, Italic</value>
   </data>
   <data name="serviceButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>529, 328</value>
+    <value>605, 437</value>
+  </data>
+  <data name="serviceButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="serviceButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 50</value>
+    <value>232, 67</value>
   </data>
   <data name="serviceButton.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
   <data name="serviceButton.Text" xml:space="preserve">
-    <value>Check out our latest services</value>
+    <value>Check out our store</value>
   </data>
   <data name="&gt;&gt;serviceButton.Name" xml:space="preserve">
     <value>serviceButton</value>
@@ -178,7 +185,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;serviceButton.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="roomsButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -187,16 +194,19 @@
     <value>Verdana, 12pt, style=Bold, Italic</value>
   </data>
   <data name="roomsButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 327</value>
+    <value>95, 436</value>
+  </data>
+  <data name="roomsButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="roomsButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 50</value>
+    <value>211, 67</value>
   </data>
   <data name="roomsButton.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
   <data name="roomsButton.Text" xml:space="preserve">
-    <value>Check out our latest rooms </value>
+    <value>Check out our latest services </value>
   </data>
   <data name="&gt;&gt;roomsButton.Name" xml:space="preserve">
     <value>roomsButton</value>
@@ -208,13 +218,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;roomsButton.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-7, 86</value>
+    <value>-8, 115</value>
+  </data>
+  <data name="pictureBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>402, 235</value>
+    <value>459, 313</value>
   </data>
   <data name="pictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -232,13 +245,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>401, 87</value>
+    <value>458, 116</value>
+  </data>
+  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>400, 232</value>
+    <value>457, 309</value>
   </data>
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -256,7 +272,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -268,19 +284,19 @@
     <value>Verdana, 12pt, style=Bold</value>
   </data>
   <data name="Home.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 27</value>
+    <value>91, 34</value>
   </data>
   <data name="Home.Text" xml:space="preserve">
     <value>Home</value>
   </data>
-  <data name="Rooms.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 27</value>
+  <data name="Store.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 34</value>
   </data>
-  <data name="Rooms.Text" xml:space="preserve">
-    <value>Rooms</value>
+  <data name="Store.Text" xml:space="preserve">
+    <value>Store</value>
   </data>
   <data name="Services.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 27</value>
+    <value>118, 34</value>
   </data>
   <data name="Services.Text" xml:space="preserve">
     <value>Services</value>
@@ -292,16 +308,16 @@
     <value>Verdana, 12pt, style=Bold</value>
   </data>
   <data name="Reviews.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 27</value>
+    <value>70, 34</value>
   </data>
   <data name="Reviews.Text" xml:space="preserve">
-    <value>Reviews</value>
+    <value>Cart</value>
   </data>
   <data name="Users.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 12pt, style=Bold</value>
   </data>
   <data name="Users.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 27</value>
+    <value>87, 34</value>
   </data>
   <data name="Users.Text" xml:space="preserve">
     <value>Users</value>
@@ -313,7 +329,7 @@
     <value>Verdana, 12pt, style=Bold</value>
   </data>
   <data name="Reservations.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 27</value>
+    <value>172, 34</value>
   </data>
   <data name="Reservations.Text" xml:space="preserve">
     <value>Reservations</value>
@@ -325,7 +341,7 @@
     <value>Verdana, 12pt, style=Bold</value>
   </data>
   <data name="MyReservations.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 27</value>
+    <value>203, 34</value>
   </data>
   <data name="MyReservations.Text" xml:space="preserve">
     <value>My reservations</value>
@@ -333,12 +349,11 @@
   <data name="menu.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menu.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 1, 0, 5</value>
+    <value>7, 1, 0, 7</value>
   </data>
   <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>800, 33</value>
+    <value>914, 42</value>
   </data>
   <data name="menu.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -356,31 +371,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="roundPictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>746, 0</value>
-  </data>
-  <data name="roundPictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 35</value>
-  </data>
-  <data name="roundPictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="roundPictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;roundPictureBox1.Name" xml:space="preserve">
-    <value>roundPictureBox1</value>
-  </data>
-  <data name="&gt;&gt;roundPictureBox1.Type" xml:space="preserve">
-    <value>Fitness.Utilities.RoundPictureBox, HotelOazis, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;roundPictureBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;roundPictureBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>8</value>
   </data>
   <data name="aboutUs.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -389,10 +380,10 @@
     <value>Segoe UI, 11.25pt, style=Bold</value>
   </data>
   <data name="aboutUs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 417</value>
+    <value>160, 556</value>
   </data>
   <data name="aboutUs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 20</value>
+    <value>93, 25</value>
   </data>
   <data name="aboutUs.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -422,10 +413,10 @@
     <value>NoControl</value>
   </data>
   <data name="contactUs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>616, 417</value>
+    <value>704, 556</value>
   </data>
   <data name="contactUs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 20</value>
+    <value>106, 25</value>
   </data>
   <data name="contactUs.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -449,17 +440,16 @@
     <value>Segoe UI, 15.75pt, style=Bold</value>
   </data>
   <data name="welcomeMessage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 43</value>
+    <value>46, 70</value>
   </data>
   <data name="welcomeMessage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>698, 31</value>
+    <value>856, 41</value>
   </data>
   <data name="welcomeMessage.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
   </data>
   <data name="welcomeMessage.Text" xml:space="preserve">
-    <value>Welcome to Hotel Oazis – Your Haven of Relaxation and Comfort!
-</value>
+    <value>Welcome to Prizma Studio — see your moments in a new light.</value>
   </data>
   <data name="&gt;&gt;welcomeMessage.Name" xml:space="preserve">
     <value>welcomeMessage</value>
@@ -477,13 +467,16 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
+    <value>8, 20</value>
   </data>
   <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
+    <value>914, 600</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -497,10 +490,10 @@
   <data name="&gt;&gt;Home.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Rooms.Name" xml:space="preserve">
-    <value>Rooms</value>
+  <data name="&gt;&gt;Store.Name" xml:space="preserve">
+    <value>Store</value>
   </data>
-  <data name="&gt;&gt;Rooms.Type" xml:space="preserve">
+  <data name="&gt;&gt;Store.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Services.Name" xml:space="preserve">

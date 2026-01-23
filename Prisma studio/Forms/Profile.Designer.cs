@@ -1,4 +1,4 @@
-﻿namespace HotelOazis.Forms
+﻿namespace Prisma_studio.Forms
 {
     partial class Profile
     {
@@ -33,7 +33,7 @@
             saveButton = new Button();
             deleteButton = new Button();
             navigationButton = new Button();
-            profilePicture = new Fitness.Utilities.RoundPictureBox();
+            profilePicture = new Prisma_studio.Utilities.RoundPictureBox();
             editButton = new Button();
             uploadButton = new Button();
             ageField = new TextBox();
@@ -51,7 +51,7 @@
             emailErrors = new Label();
             passwordErrors = new Label();
             usernameErrors = new Label();
-            roundPictureBox1 = new Fitness.Utilities.RoundPictureBox();
+            roundPictureBox1 = new Prisma_studio.Utilities.RoundPictureBox();
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
             Rooms = new ToolStripMenuItem();
@@ -175,6 +175,7 @@
             // 
             resources.ApplyResources(logo, "logo");
             logo.BackColor = Color.Transparent;
+            logo.BackgroundImage = Prisma_studio.Properties.Resources.logo;
             logo.Name = "logo";
             logo.TabStop = false;
             // 
@@ -188,6 +189,7 @@
             // 
             resources.ApplyResources(formPanel, "formPanel");
             formPanel.BackColor = SystemColors.Control;
+            formPanel.BackgroundImage = Prisma_studio.Properties.Resources.gradient_img__4_;
             formPanel.Controls.Add(pfpErrors);
             formPanel.Controls.Add(emailErrors);
             formPanel.Controls.Add(passwordErrors);
@@ -250,6 +252,7 @@
             // 
             resources.ApplyResources(menu, "menu");
             menu.BackColor = SystemColors.ScrollBar;
+            menu.ImageScalingSize = new Size(20, 20);
             menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, Users, Reservations, MyReservations });
             menu.Name = "menu";
             // 
@@ -310,6 +313,7 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Prisma_studio.Properties.Resources.appbackground;
             Controls.Add(roundPictureBox1);
             Controls.Add(menu);
             Controls.Add(formPanel);
@@ -332,7 +336,7 @@
         private Button saveButton;
         private Button deleteButton;
         private Button navigationButton;
-        private Fitness.Utilities.RoundPictureBox profilePicture;
+        private Prisma_studio.Utilities.RoundPictureBox profilePicture;
         private Button editButton;
         private Button uploadButton;
         private TextBox ageField;
@@ -350,7 +354,7 @@
         private Label emailErrors;
         private Label passwordErrors;
         private Label usernameErrors;
-        private Fitness.Utilities.RoundPictureBox roundPictureBox1;
+        private Prisma_studio.Utilities.RoundPictureBox roundPictureBox1;
         private MenuStrip menu;
         private ToolStripMenuItem Home;
         private ToolStripMenuItem Rooms;

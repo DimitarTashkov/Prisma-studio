@@ -1,12 +1,12 @@
-﻿using Fitness.Utilities;
-using HotelOazis.Common.Constants;
-using HotelOazis.Extensions;
-using HotelOazis.Models;
-using HotelOazis.Services.Interfaces;
-using HotelOazis.Utilities;
-using static HotelOazis.Utilities.DynamicContentTranslator.EntitiesTranslation;
+﻿using Prisma_studio.Utilities;
+using Prisma_studio.Common.Constants;
+using Prisma_studio.Extensions;
+using Prisma_studio.Models;
+using Prisma_studio.Services.Interfaces;
+using static Prisma_studio.Utilities.DynamicContentTranslator.EntitiesTranslation;
+using Prisma_studio;
 
-namespace HotelOazis.Forms
+namespace Prisma_studio.Forms
 {
     public partial class Users : Form
     {
@@ -96,15 +96,15 @@ namespace HotelOazis.Forms
                 isAdminBox.Items.AddRange(new object[] { "True", "False" });
                 isAdminBox.SelectedIndex = await userService.IsUserAdminAsync(user.Id) ? 0 : 1;
 
-                    isAdminBox.DropDownClosed += async (sender, e) =>
-                    {
-                        bool isAdmin = isAdminBox.SelectedItem?.ToString() == "True";
-                        if (isAdmin)
-                            await userService.MakeUserAdminAsync(user.Id);
-                        else
-                            await userService.RemoveAdminRoleAsync(user.Id);
-                    };
-                
+                isAdminBox.DropDownClosed += async (sender, e) =>
+                {
+                    bool isAdmin = isAdminBox.SelectedItem?.ToString() == "True";
+                    if (isAdmin)
+                        await userService.MakeUserAdminAsync(user.Id);
+                    else
+                        await userService.RemoveAdminRoleAsync(user.Id);
+                };
+
                 var edit = new Button
                 {
                     Name = $"edit{index}",
@@ -183,4 +183,4 @@ namespace HotelOazis.Forms
             Program.SwitchMainForm(profileForm);
         }
     }
-}
+}}
