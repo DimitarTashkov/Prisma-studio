@@ -36,15 +36,15 @@ namespace Prisma_studio.Forms
             // Мапваме към Grid-а
             dgvProducts.DataSource = products.Select(p => new
             {
-                ID = p.Id,
-                Име = p.Name,
-                Цена = p.Price,
-                Наличност = p.StockQuantity
+                Id = p.Id,
+                Name = p.Name,
+                Price = p.Price,
+                Quantity = p.StockQuantity
             }).ToList();
 
             // Скриваме ID колоната, че е грозна
-            if (dgvProducts.Columns["ID"] != null)
-                dgvProducts.Columns["ID"].Visible = false;
+            if (dgvProducts.Columns["Id"] != null)
+                dgvProducts.Columns["Id"].Visible = false;
         }
 
         // --- ЛОГИКА ЗА ИЗБОР ОТ ТАБЛИЦАТА ---
@@ -55,7 +55,7 @@ namespace Prisma_studio.Forms
             if (dgvProducts.SelectedRows.Count > 0)
             {
                 // Взимаме ID-то от скритата колона или от обекта
-                var selectedId = (Guid)dgvProducts.SelectedRows[0].Cells["ID"].Value;
+                var selectedId = (Guid)dgvProducts.SelectedRows[0].Cells["Id"].Value;
 
                 // Дърпаме целия продукт от базата
                 var product = _shopService.GetProductById(selectedId);
@@ -123,7 +123,7 @@ namespace Prisma_studio.Forms
             // 1. Валидация
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
-                MessageBox.Show("Името е задължително!");
+                MessageBox.Show("Product Name is required!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -158,7 +158,7 @@ namespace Prisma_studio.Forms
                         ImageUrl = finalImagePath
                     };
                     _shopService.AddProduct(newProduct);
-                    MessageBox.Show("Продуктът е добавен!");
+                    MessageBox.Show("Product added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -173,7 +173,7 @@ namespace Prisma_studio.Forms
                         ImageUrl = finalImagePath
                     };
                     _shopService.UpdateProduct(productToUpdate);
-                    MessageBox.Show("Промените са запазени!");
+                    MessageBox.Show("Product updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 LoadGrid(); // Обновяваме таблицата
@@ -181,7 +181,7 @@ namespace Prisma_studio.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Грешка: " + ex.Message);
+                MessageBox.Show("Error saving product: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -189,8 +189,7 @@ namespace Prisma_studio.Forms
         {
             if (_selectedProductId == null) return;
 
-            var res = MessageBox.Show("Сигурни ли сте, че искате да изтриете този продукт?", "Потвърждение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
+            var res = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
                 _shopService.DeleteProduct(_selectedProductId.Value);

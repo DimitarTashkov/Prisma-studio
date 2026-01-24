@@ -1,8 +1,9 @@
-﻿using Prisma_studio.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Prisma_studio.Data;
 using Prisma_studio.Data.Models;
-using Prisma_studio.Services.Interfaces;
 using Prisma_studio.Data.Models;
 using Prisma_studio.Services;
+using Prisma_studio.Services.Interfaces;
 using Prisma_studio.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,26 @@ namespace Prisma_studio.Services
         public PhotoService GetServiceById(Guid id)
         {
             return this.Context.PhotoServices.FirstOrDefault(s => s.Id == id);
+        }
+        public void AddService(PhotoService service)
+        {
+            Context.PhotoServices.Add(service);
+            Context.SaveChanges();
+        }
+
+        public void UpdateService(PhotoService service)
+        {
+            var existing = Context.PhotoServices.Find(service.Id);
+            if (existing != null)
+            {
+                existing.Name = service.Name;
+                existing.Price = service.Price;
+                existing.DurationMinutes = service.DurationMinutes; // <-- Разликата с продуктите
+                existing.Description = service.Description;
+                existing.ImageUrl = service.ImageUrl;
+
+                Context.SaveChanges();
+            }
         }
 
         public void CreateService(string name, string description, decimal price, int durationMinutes, string imageUrl)

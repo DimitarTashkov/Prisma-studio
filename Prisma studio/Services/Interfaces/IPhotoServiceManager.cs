@@ -11,6 +11,8 @@ namespace Prisma_studio.Services.Interfaces
         PhotoService GetServiceById(Guid id); // int -> Guid
         void CreateService(string name, string description, decimal price, int durationMinutes, string imageUrl);
         void EditService(Guid id, string name, string description, decimal price, int durationMinutes, string imageUrl); // int -> Guid
-        void DeleteService(Guid id); // int -> Guid
+        void DeleteService(Guid id);
+        void AddService(PhotoService service);
+        void UpdateService(PhotoService service);
     }
 }
