@@ -21,5 +21,6 @@ namespace Prisma_studio.Services.Interfaces
         string GenerateInvoiceText(Guid orderId);
         void UpdateProduct(Product product);
         void AddProduct(Product product);
+        void CompleteOrder(Guid orderId);
     }
 }

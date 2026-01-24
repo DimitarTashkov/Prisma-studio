@@ -121,5 +121,25 @@ namespace Prisma_studio.Services
                 this.Context.SaveChanges();
             }
         }
+        public void ConfirmSession(Guid sessionId)
+        {
+            var session = Context.PhotoSessions.Find(sessionId);
+            if (session != null)
+            {
+                session.IsConfirmed = true;
+                Context.SaveChanges();
+            }
+        }
+
+        public void DeclineSession(Guid sessionId)
+        {
+            var session = Context.PhotoSessions.Find(sessionId);
+            if (session != null)
+            {
+                // Вариант 1: Изтриваме я напълно
+                Context.PhotoSessions.Remove(session);
+                Context.SaveChanges();
+            }
+        }
     }
 }

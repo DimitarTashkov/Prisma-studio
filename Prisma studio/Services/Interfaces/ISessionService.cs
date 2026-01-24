@@ -12,5 +12,7 @@ namespace Prisma_studio.Services.Interfaces
         List<TimeSpan> GetAvailableSlots(DateTime date, int serviceDurationMinutes);
         List<PhotoSession> GetAllUpcomingSessions();
         void CancelSession(Guid sessionId); // sessionId -> Guid
+        void ConfirmSession(Guid sessionId);
+        void DeclineSession(Guid sessionId); // Това ще я изтрие или маркира като отказана
     }
 }

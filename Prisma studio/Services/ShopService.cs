@@ -87,6 +87,17 @@ namespace Prisma_studio.Services
                 this.context.SaveChanges();
             }
         }
+        public void CompleteOrder(Guid orderId)
+        {
+            var order = context.Orders.Find(orderId);
+            if (order != null)
+            {
+                // За простота в дипломната работа: Приемаме, че щом е изпълнена, 
+                // я махаме от списъка с активни задачи (или я трием).
+                context.Orders.Remove(order);
+                context.SaveChanges();
+            }
+        }
 
         // --- ПОРЪЧКИ ---
 
