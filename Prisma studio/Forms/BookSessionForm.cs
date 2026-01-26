@@ -37,6 +37,7 @@ namespace Prisma_studio.Forms
             // Get the third service manually using ServiceLocator
             photoManager = ServiceLocator.GetService<IPhotoServiceManager>();
             activeUser = this.userService.GetLoggedInUserAsync();
+            roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
             dtpDate.MinDate = DateTime.Today; // Disable past dates
             LoadServices();
         }
@@ -175,7 +176,7 @@ namespace Prisma_studio.Forms
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
             string formName = item.Name;
-            Form form;
+            Form form = new Index(userService);
 
             switch (formName)
             {
@@ -201,7 +202,6 @@ namespace Prisma_studio.Forms
                     form = new ManageServices(serviceManager);
                     break;
                 case "Home":
-                default:
                     form = new Index(userService);
                     break;
             }

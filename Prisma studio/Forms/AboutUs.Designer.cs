@@ -100,33 +100,33 @@
             // 
             // menu
             // 
-            resources.ApplyResources(menu, "menu");
             menu.BackColor = SystemColors.ScrollBar;
             menu.BackgroundImage = Properties.Resources.gradient_img__4_;
+            resources.ApplyResources(menu, "menu");
             menu.ImageScalingSize = new Size(20, 20);
             menu.Items.AddRange(new ToolStripItem[] { Home, Store, Services, Users, Management, MyReservations });
             menu.Name = "menu";
             // 
             // Home
             // 
-            resources.ApplyResources(Home, "Home");
             Home.Name = "Home";
+            resources.ApplyResources(Home, "Home");
             Home.Click += menu_ItemClicked;
             // 
             // Store
             // 
-            resources.ApplyResources(Store, "Store");
             Store.ForeColor = SystemColors.ActiveCaptionText;
             Store.Name = "Store";
             Store.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Store, "Store");
             Store.Click += menu_ItemClicked;
             // 
             // Services
             // 
-            resources.ApplyResources(Services, "Services");
             Services.ForeColor = SystemColors.ActiveCaptionText;
             Services.Name = "Services";
             Services.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Services, "Services");
             Services.Click += menu_ItemClicked;
             // 
             // Users
@@ -139,20 +139,20 @@
             // 
             // Management
             // 
-            resources.ApplyResources(Management, "Management");
             Management.DropDownItems.AddRange(new ToolStripItem[] { manageProducts, manageServices });
+            resources.ApplyResources(Management, "Management");
             Management.Name = "Management";
             // 
             // manageProducts
             // 
-            resources.ApplyResources(manageProducts, "manageProducts");
             manageProducts.Name = "manageProducts";
+            resources.ApplyResources(manageProducts, "manageProducts");
             manageProducts.Click += menu_ItemClicked;
             // 
             // manageServices
             // 
-            resources.ApplyResources(manageServices, "manageServices");
             manageServices.Name = "manageServices";
+            resources.ApplyResources(manageServices, "manageServices");
             manageServices.Click += menu_ItemClicked;
             // 
             // MyReservations

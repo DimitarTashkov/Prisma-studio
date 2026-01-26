@@ -245,6 +245,7 @@
             roundPictureBox1.Location = new Point(920, 0);
             roundPictureBox1.Name = "roundPictureBox1";
             roundPictureBox1.Size = new Size(57, 47);
+            roundPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             roundPictureBox1.TabIndex = 46;
             roundPictureBox1.TabStop = false;
             roundPictureBox1.Click += roundPictureBox1_Click;
@@ -312,14 +313,14 @@
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(224, 30);
+            toolStripMenuItem1.Size = new Size(198, 30);
             toolStripMenuItem1.Text = "Products";
             toolStripMenuItem1.Click += menu_ItemClicked;
             // 
             // manageservice
             // 
             manageservice.Name = "manageservice";
-            manageservice.Size = new Size(224, 30);
+            manageservice.Size = new Size(198, 30);
             manageservice.Text = "Services";
             manageservice.Click += menu_ItemClicked;
             // 

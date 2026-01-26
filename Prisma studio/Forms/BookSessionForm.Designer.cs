@@ -145,7 +145,7 @@
             btnBook.ForeColor = SystemColors.ControlText;
             btnBook.Location = new Point(352, 390);
             btnBook.Name = "btnBook";
-            btnBook.Size = new Size(94, 29);
+            btnBook.Size = new Size(99, 34);
             btnBook.TabIndex = 23;
             btnBook.Text = "Reserve";
             btnBook.UseVisualStyleBackColor = false;
@@ -158,7 +158,7 @@
             btnBack.ForeColor = SystemColors.ControlText;
             btnBack.Location = new Point(12, 56);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(94, 29);
+            btnBack.Size = new Size(85, 39);
             btnBack.TabIndex = 24;
             btnBack.Text = "<-Back";
             btnBack.UseVisualStyleBackColor = false;
@@ -170,6 +170,7 @@
             roundPictureBox1.Location = new Point(853, 0);
             roundPictureBox1.Name = "roundPictureBox1";
             roundPictureBox1.Size = new Size(57, 47);
+            roundPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             roundPictureBox1.TabIndex = 28;
             roundPictureBox1.TabStop = false;
             roundPictureBox1.Click += roundPictureBox1_Click;
@@ -237,14 +238,14 @@
             // manageProducts
             // 
             manageProducts.Name = "manageProducts";
-            manageProducts.Size = new Size(224, 30);
+            manageProducts.Size = new Size(198, 30);
             manageProducts.Text = "Products";
             manageProducts.Click += menu_ItemClicked;
             // 
             // manageServices
             // 
             manageServices.Name = "manageServices";
-            manageServices.Size = new Size(224, 30);
+            manageServices.Size = new Size(198, 30);
             manageServices.Text = "Services";
             manageServices.Click += menu_ItemClicked;
             // 

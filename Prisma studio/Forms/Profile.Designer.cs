@@ -54,11 +54,12 @@
             roundPictureBox1 = new Prisma_studio.Utilities.RoundPictureBox();
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
-            Rooms = new ToolStripMenuItem();
+            Store = new ToolStripMenuItem();
             Services = new ToolStripMenuItem();
-            Reviews = new ToolStripMenuItem();
             Users = new ToolStripMenuItem();
-            Reservations = new ToolStripMenuItem();
+            Management = new ToolStripMenuItem();
+            manageProducts = new ToolStripMenuItem();
+            manageServices = new ToolStripMenuItem();
             MyReservations = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)profilePicture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
@@ -69,32 +70,32 @@
             // 
             // logoutButton
             // 
-            resources.ApplyResources(logoutButton, "logoutButton");
             logoutButton.BackColor = Color.Red;
+            resources.ApplyResources(logoutButton, "logoutButton");
             logoutButton.Name = "logoutButton";
             logoutButton.UseVisualStyleBackColor = false;
             logoutButton.Click += logoutButton_Click;
             // 
             // saveButton
             // 
-            resources.ApplyResources(saveButton, "saveButton");
             saveButton.BackColor = Color.LightGreen;
+            resources.ApplyResources(saveButton, "saveButton");
             saveButton.Name = "saveButton";
             saveButton.UseVisualStyleBackColor = false;
             saveButton.Click += saveButton_Click;
             // 
             // deleteButton
             // 
-            resources.ApplyResources(deleteButton, "deleteButton");
             deleteButton.BackColor = Color.Red;
+            resources.ApplyResources(deleteButton, "deleteButton");
             deleteButton.Name = "deleteButton";
             deleteButton.UseVisualStyleBackColor = false;
             deleteButton.Click += deleteButton_Click;
             // 
             // navigationButton
             // 
-            resources.ApplyResources(navigationButton, "navigationButton");
             navigationButton.BackColor = Color.DarkOrange;
+            resources.ApplyResources(navigationButton, "navigationButton");
             navigationButton.Name = "navigationButton";
             navigationButton.UseVisualStyleBackColor = false;
             navigationButton.Click += navigationButton_Click;
@@ -107,8 +108,8 @@
             // 
             // editButton
             // 
-            resources.ApplyResources(editButton, "editButton");
             editButton.BackColor = Color.LightGray;
+            resources.ApplyResources(editButton, "editButton");
             editButton.Name = "editButton";
             editButton.UseVisualStyleBackColor = false;
             editButton.Click += editButton_Click;
@@ -121,8 +122,8 @@
             // 
             // ageField
             // 
-            resources.ApplyResources(ageField, "ageField");
             ageField.BackColor = Color.LightGray;
+            resources.ApplyResources(ageField, "ageField");
             ageField.ForeColor = Color.DimGray;
             ageField.Name = "ageField";
             // 
@@ -134,8 +135,8 @@
             // 
             // emailField
             // 
-            resources.ApplyResources(emailField, "emailField");
             emailField.BackColor = Color.LightGray;
+            resources.ApplyResources(emailField, "emailField");
             emailField.ForeColor = Color.DimGray;
             emailField.Name = "emailField";
             // 
@@ -147,8 +148,8 @@
             // 
             // passwordField
             // 
-            resources.ApplyResources(passwordField, "passwordField");
             passwordField.BackColor = Color.LightGray;
+            resources.ApplyResources(passwordField, "passwordField");
             passwordField.ForeColor = Color.DimGray;
             passwordField.Name = "passwordField";
             // 
@@ -160,8 +161,8 @@
             // 
             // usernameField
             // 
-            resources.ApplyResources(usernameField, "usernameField");
             usernameField.BackColor = Color.LightGray;
+            resources.ApplyResources(usernameField, "usernameField");
             usernameField.ForeColor = Color.DimGray;
             usernameField.Name = "usernameField";
             // 
@@ -173,9 +174,9 @@
             // 
             // logo
             // 
-            resources.ApplyResources(logo, "logo");
             logo.BackColor = Color.Transparent;
             logo.BackgroundImage = Properties.Resources.logo;
+            resources.ApplyResources(logo, "logo");
             logo.Name = "logo";
             logo.TabStop = false;
             // 
@@ -187,9 +188,9 @@
             // 
             // formPanel
             // 
-            resources.ApplyResources(formPanel, "formPanel");
             formPanel.BackColor = SystemColors.Control;
             formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
+            resources.ApplyResources(formPanel, "formPanel");
             formPanel.Controls.Add(pfpErrors);
             formPanel.Controls.Add(emailErrors);
             formPanel.Controls.Add(passwordErrors);
@@ -250,41 +251,34 @@
             // 
             // menu
             // 
-            resources.ApplyResources(menu, "menu");
             menu.BackColor = SystemColors.ScrollBar;
+            menu.BackgroundImage = Properties.Resources.gradient_img__4_;
+            resources.ApplyResources(menu, "menu");
             menu.ImageScalingSize = new Size(20, 20);
-            menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, Users, Reservations, MyReservations });
+            menu.Items.AddRange(new ToolStripItem[] { Home, Store, Services, Users, Management, MyReservations });
             menu.Name = "menu";
             // 
             // Home
             // 
-            resources.ApplyResources(Home, "Home");
             Home.Name = "Home";
+            resources.ApplyResources(Home, "Home");
             Home.Click += menu_ItemClicked;
             // 
-            // Rooms
+            // Store
             // 
-            resources.ApplyResources(Rooms, "Rooms");
-            Rooms.ForeColor = SystemColors.ActiveCaptionText;
-            Rooms.Name = "Rooms";
-            Rooms.Padding = new Padding(4, 0, 4, 5);
-            Rooms.Click += menu_ItemClicked;
+            Store.ForeColor = SystemColors.ActiveCaptionText;
+            Store.Name = "Store";
+            Store.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Store, "Store");
+            Store.Click += menu_ItemClicked;
             // 
             // Services
             // 
-            resources.ApplyResources(Services, "Services");
             Services.ForeColor = SystemColors.ActiveCaptionText;
             Services.Name = "Services";
             Services.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Services, "Services");
             Services.Click += menu_ItemClicked;
-            // 
-            // Reviews
-            // 
-            resources.ApplyResources(Reviews, "Reviews");
-            Reviews.ForeColor = SystemColors.ActiveCaptionText;
-            Reviews.Name = "Reviews";
-            Reviews.Padding = new Padding(4, 0, 4, 5);
-            Reviews.Click += menu_ItemClicked;
             // 
             // Users
             // 
@@ -294,19 +288,30 @@
             Users.Padding = new Padding(4, 0, 4, 5);
             Users.Click += menu_ItemClicked;
             // 
-            // Reservations
+            // Management
             // 
-            resources.ApplyResources(Reservations, "Reservations");
-            Reservations.Name = "Reservations";
-            Reservations.Padding = new Padding(0);
-            Reservations.Click += menu_ItemClicked;
+            Management.DropDownItems.AddRange(new ToolStripItem[] { manageProducts, manageServices });
+            resources.ApplyResources(Management, "Management");
+            Management.Name = "Management";
+            // 
+            // manageProducts
+            // 
+            manageProducts.Name = "manageProducts";
+            resources.ApplyResources(manageProducts, "manageProducts");
+            manageProducts.Click += menu_ItemClicked;
+            // 
+            // manageServices
+            // 
+            manageServices.Name = "manageServices";
+            resources.ApplyResources(manageServices, "manageServices");
+            manageServices.Click += menu_ItemClicked;
             // 
             // MyReservations
             // 
             resources.ApplyResources(MyReservations, "MyReservations");
             MyReservations.ForeColor = SystemColors.ActiveCaptionText;
             MyReservations.Name = "MyReservations";
-            MyReservations.Padding = new Padding(0, 0, 0, 5);
+            MyReservations.Padding = new Padding(4, 0, 4, 5);
             MyReservations.Click += menu_ItemClicked;
             // 
             // Profile
@@ -354,14 +359,15 @@
         private Label emailErrors;
         private Label passwordErrors;
         private Label usernameErrors;
-        private Prisma_studio.Utilities.RoundPictureBox roundPictureBox1;
+        private Utilities.RoundPictureBox roundPictureBox1;
         private MenuStrip menu;
         private ToolStripMenuItem Home;
-        private ToolStripMenuItem Rooms;
+        private ToolStripMenuItem Store;
         private ToolStripMenuItem Services;
-        private ToolStripMenuItem Reviews;
         private ToolStripMenuItem Users;
-        private ToolStripMenuItem Reservations;
+        private ToolStripMenuItem Management;
+        private ToolStripMenuItem manageProducts;
+        private ToolStripMenuItem manageServices;
         private ToolStripMenuItem MyReservations;
     }
 }

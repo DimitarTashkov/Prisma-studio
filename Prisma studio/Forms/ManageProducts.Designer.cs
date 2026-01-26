@@ -245,6 +245,7 @@
             roundPictureBox1.Location = new Point(920, 0);
             roundPictureBox1.Name = "roundPictureBox1";
             roundPictureBox1.Size = new Size(57, 47);
+            roundPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             roundPictureBox1.TabIndex = 29;
             roundPictureBox1.TabStop = false;
             roundPictureBox1.Click += roundPictureBox1_Click;
@@ -312,14 +313,14 @@
             // manageproduct
             // 
             manageproduct.Name = "manageproduct";
-            manageproduct.Size = new Size(224, 30);
+            manageproduct.Size = new Size(198, 30);
             manageproduct.Text = "Products";
             manageproduct.Click += menu_ItemClicked;
             // 
             // manageServices
             // 
             manageServices.Name = "manageServices";
-            manageServices.Size = new Size(224, 30);
+            manageServices.Size = new Size(198, 30);
             manageServices.Text = "Services";
             manageServices.Click += menu_ItemClicked;
             // 

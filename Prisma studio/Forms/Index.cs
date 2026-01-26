@@ -69,7 +69,7 @@ namespace Prisma_studio.Forms
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
             string formName = item.Name;
-            Form form;
+            Form form = new Index(userService);
 
             switch (formName)
             {
@@ -95,7 +95,6 @@ namespace Prisma_studio.Forms
                     form = new ManageServices(serviceManager);
                     break;
                 case "Home":
-                default:
                     form = new Index(userService);
                     break;
             }

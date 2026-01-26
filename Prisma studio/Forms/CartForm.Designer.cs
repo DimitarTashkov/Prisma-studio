@@ -42,11 +42,11 @@
             Home = new ToolStripMenuItem();
             Store = new ToolStripMenuItem();
             Services = new ToolStripMenuItem();
+            MyReservations = new ToolStripMenuItem();
             Users = new ToolStripMenuItem();
             Management = new ToolStripMenuItem();
             manageProducts = new ToolStripMenuItem();
             manageServices = new ToolStripMenuItem();
-            MyReservations = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)roundPictureBox1).BeginInit();
             menu.SuspendLayout();
             SuspendLayout();
@@ -66,7 +66,7 @@
             btnBack.ForeColor = SystemColors.ControlText;
             btnBack.Location = new Point(12, 56);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(94, 29);
+            btnBack.Size = new Size(92, 38);
             btnBack.TabIndex = 14;
             btnBack.Text = "<-Back";
             btnBack.UseVisualStyleBackColor = false;
@@ -141,6 +141,7 @@
             roundPictureBox1.Location = new Point(853, 0);
             roundPictureBox1.Name = "roundPictureBox1";
             roundPictureBox1.Size = new Size(57, 47);
+            roundPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             roundPictureBox1.TabIndex = 30;
             roundPictureBox1.TabStop = false;
             roundPictureBox1.Click += roundPictureBox1_Click;
@@ -152,7 +153,7 @@
             menu.BackgroundImageLayout = ImageLayout.Stretch;
             menu.Font = new Font("Verdana", 12F, FontStyle.Bold);
             menu.ImageScalingSize = new Size(20, 20);
-            menu.Items.AddRange(new ToolStripItem[] { Home, Store, Services, Users, Management, MyReservations });
+            menu.Items.AddRange(new ToolStripItem[] { Home, Store, Services, MyReservations, Users, Management });
             menu.Location = new Point(0, 0);
             menu.Name = "menu";
             menu.Padding = new Padding(7, 1, 0, 7);
@@ -185,6 +186,16 @@
             Services.Text = "Services";
             Services.Click += menu_ItemClicked;
             // 
+            // MyReservations
+            // 
+            MyReservations.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            MyReservations.ForeColor = SystemColors.ActiveCaptionText;
+            MyReservations.Name = "MyReservations";
+            MyReservations.Padding = new Padding(4, 0, 4, 5);
+            MyReservations.Size = new Size(136, 34);
+            MyReservations.Text = "My orders";
+            MyReservations.Click += menu_ItemClicked;
+            // 
             // Users
             // 
             Users.Font = new Font("Verdana", 12F, FontStyle.Bold);
@@ -208,26 +219,16 @@
             // manageProducts
             // 
             manageProducts.Name = "manageProducts";
-            manageProducts.Size = new Size(224, 30);
+            manageProducts.Size = new Size(198, 30);
             manageProducts.Text = "Products";
             manageProducts.Click += menu_ItemClicked;
             // 
             // manageServices
             // 
             manageServices.Name = "manageServices";
-            manageServices.Size = new Size(224, 30);
+            manageServices.Size = new Size(198, 30);
             manageServices.Text = "Services";
             manageServices.Click += menu_ItemClicked;
-            // 
-            // MyReservations
-            // 
-            MyReservations.Font = new Font("Verdana", 12F, FontStyle.Bold);
-            MyReservations.ForeColor = SystemColors.ActiveCaptionText;
-            MyReservations.Name = "MyReservations";
-            MyReservations.Padding = new Padding(4, 0, 4, 5);
-            MyReservations.Size = new Size(136, 34);
-            MyReservations.Text = "My orders";
-            MyReservations.Click += menu_ItemClicked;
             // 
             // CartForm
             // 

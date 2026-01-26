@@ -35,6 +35,7 @@ namespace Prisma_studio.Forms
             this.shopService = shopService;
             userService = ServiceLocator.GetService<IUserService>();
             activeUser = userService.GetLoggedInUserAsync();
+            roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
             bool isAdmin = AuthorizationHelper.IsAuthorized();
 
             if (isAdmin)
@@ -222,7 +223,7 @@ namespace Prisma_studio.Forms
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
             string formName = item.Name;
-            Form form;
+            Form form = new Index(userService);
 
             switch (formName)
             {
@@ -248,7 +249,6 @@ namespace Prisma_studio.Forms
                     form = new ManageServices(serviceManager);
                     break;
                 case "Home":
-                default:
                     form = new Index(userService);
                     break;
             }

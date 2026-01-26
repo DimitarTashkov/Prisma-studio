@@ -1,15 +1,16 @@
-﻿using Prisma_studio.Utilities;
+﻿using Microsoft.EntityFrameworkCore;
+using Prisma_studio;
 using Prisma_studio.Common.Constants;
 using Prisma_studio.DTOs.User;
 using Prisma_studio.Extensions;
 using Prisma_studio.Models;
+using Prisma_studio.Services;
 using Prisma_studio.Services.Interfaces;
 using Prisma_studio.Utilities;
-using Microsoft.EntityFrameworkCore;
-using static Prisma_studio.Common.Constants.ValidationConstants.UserConstants;
+using Prisma_studio.Utilities;
 using static Prisma_studio.Common.Constants.ValidationConstants.InputConstants;
+using static Prisma_studio.Common.Constants.ValidationConstants.UserConstants;
 using static Prisma_studio.Utilities.DynamicContentTranslator.EntitiesTranslation;
-using Prisma_studio;
 
 namespace Prisma_studio.Forms
 {
@@ -18,6 +19,9 @@ namespace Prisma_studio.Forms
         private User activeUser;
         private Guid userId;
         private readonly IUserService userService;
+        private readonly IShopService shopService = ServiceLocator.GetService<IShopService>();
+        private readonly ISessionService sessionService = ServiceLocator.GetService<ISessionService>();
+        private readonly IPhotoServiceManager serviceManager = ServiceLocator.GetService<IPhotoServiceManager>();
 
 
         public Profile(IUserService userService, Guid userId)
@@ -42,7 +46,7 @@ namespace Prisma_studio.Forms
 
         private void ApplyStyles()
         {
-            this.BackColor = Color.FromArgb(245, 245, 245);
+            //this.BackColor = Color.FromArgb(245, 245, 245);
             navigationButton.Font = new Font("Segoe UI", 13, FontStyle.Regular);
             navigationButton.ForeColor = Color.White;
 
@@ -107,7 +111,7 @@ namespace Prisma_studio.Forms
             if (isAdmin)
             {
                 Users.Visible = true;
-                Reservations.Visible = true;
+                Management.Visible = true;
             }
 
             roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
@@ -278,32 +282,29 @@ namespace Prisma_studio.Forms
 
             switch (formName)
             {
-                case "Rooms":
-                    //form = new Rooms(roomService, userService);
+                case "Store":
+                    form = new ShopForm(shopService);
                     break;
                 case "Services":
-                    //form = new Services(facilityService, userService);
-                    break;
-                case "Reviews":
-                    //form = new Reviews(reviewService, userService);
+                    form = new BookSessionForm(sessionService, userService);
                     break;
                 case "Profile":
-                    //form = new Profile(userService,activeUser.Id);
+                    form = new Profile(userService, activeUser.Id);
                     break;
                 case "Users":
-                    //form = new Users(userService);
+                    form = new Users(userService);
                     break;
                 case "MyReservations":
-                    //form = new Reservations(userService, roomService);
+                    form = new Orders(sessionService, shopService, userService);
                     break;
-                case "Reservations":
-                    //form = new Reservations(userService, roomService);
+                case "manageProducts":
+                    form = new ManageProducts(shopService);
+                    break;
+                case "manageServices":
+                    form = new ManageServices(serviceManager);
                     break;
                 case "Home":
-                    //form = new Index(userService);
-                    break;
-                default:
-                    //form = new Index(userService);
+                    form = new Index(userService);
                     break;
             }
             Program.SwitchMainForm(form);

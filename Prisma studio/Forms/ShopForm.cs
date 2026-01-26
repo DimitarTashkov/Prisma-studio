@@ -34,6 +34,7 @@ namespace Prisma_studio.Forms
             sessionService = ServiceLocator.GetService<ISessionService>();
             serviceManager = ServiceLocator.GetService<IPhotoServiceManager>();
             activeUser = userService.GetLoggedInUserAsync();
+            roundPictureBox1.ImageLocation = activeUser.AvatarUrl;
 
             // Настройки на UI
             // Ако имаш lblTitle в дизайнера:
@@ -208,7 +209,7 @@ namespace Prisma_studio.Forms
             ToolStripMenuItem item = sender as ToolStripMenuItem;
 
             string formName = item.Name;
-            Form form;
+            Form form = new Index(userService);
 
             switch (formName)
             {
@@ -234,7 +235,6 @@ namespace Prisma_studio.Forms
                     form = new ManageServices(serviceManager);
                     break;
                 case "Home":
-                default:
                     form = new Index(userService);
                     break;
             }

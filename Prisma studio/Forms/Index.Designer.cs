@@ -56,7 +56,6 @@
             // footer
             // 
             footer.BackColor = Color.Transparent;
-            footer.BackgroundImage = Properties.Resources.gradient_img__4_;
             resources.ApplyResources(footer, "footer");
             footer.Name = "footer";
             footer.UseVisualStyleBackColor = false;
@@ -135,7 +134,6 @@
             Management.DropDownItems.AddRange(new ToolStripItem[] { manageProducts, manageServices });
             resources.ApplyResources(Management, "Management");
             Management.Name = "Management";
-            Management.Click += menu_ItemClicked;
             // 
             // manageProducts
             // 

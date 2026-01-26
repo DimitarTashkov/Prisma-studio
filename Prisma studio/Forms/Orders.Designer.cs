@@ -113,9 +113,9 @@
             btnBack.BackColor = Color.DarkOrange;
             btnBack.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBack.ForeColor = SystemColors.ControlText;
-            btnBack.Location = new Point(12, 571);
+            btnBack.Location = new Point(7, 571);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(94, 29);
+            btnBack.Size = new Size(103, 35);
             btnBack.TabIndex = 25;
             btnBack.Text = "<-Back";
             btnBack.UseVisualStyleBackColor = false;
@@ -127,6 +127,7 @@
             roundPictureBox1.Location = new Point(853, 0);
             roundPictureBox1.Name = "roundPictureBox1";
             roundPictureBox1.Size = new Size(57, 47);
+            roundPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             roundPictureBox1.TabIndex = 27;
             roundPictureBox1.TabStop = false;
             roundPictureBox1.Click += roundPictureBox1_Click;
@@ -221,7 +222,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.appbackground;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(914, 613);
             Controls.Add(roundPictureBox1);
             Controls.Add(menu);
             Controls.Add(btnBack);

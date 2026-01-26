@@ -3,6 +3,7 @@ using Prisma_studio.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualBasic.Logging;
 using System.Globalization;
+using Prisma_studio.Forms;
 
 namespace Prisma_studio
 {
@@ -32,7 +33,7 @@ namespace Prisma_studio
 
             var userService = ServiceLocator.GetService<IUserService>();
 
-            //AppContext = new ApplicationContext(new Login(userService));
+            AppContext = new ApplicationContext(new Login(userService));
             Application.Run(AppContext);
         }
         public static void SwitchMainForm(Form newForm)
