@@ -29,12 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutUs));
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
+            lblTitle = new Label();
             roundPictureBox1 = new Prisma_studio.Utilities.RoundPictureBox();
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
@@ -45,51 +40,18 @@
             manageProducts = new ToolStripMenuItem();
             manageServices = new ToolStripMenuItem();
             MyReservations = new ToolStripMenuItem();
+            lblDescription = new Label();
+            lblStats = new Label();
             ((System.ComponentModel.ISupportInitialize)roundPictureBox1).BeginInit();
             menu.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // lblTitle
             // 
-            resources.ApplyResources(label1, "label1");
-            label1.BackColor = Color.Transparent;
-            label1.ForeColor = Color.White;
-            label1.Name = "label1";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(label2, "label2");
-            label2.BackColor = Color.Transparent;
-            label2.ForeColor = Color.White;
-            label2.Name = "label2";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(label3, "label3");
-            label3.BackColor = Color.Transparent;
-            label3.ForeColor = Color.White;
-            label3.Name = "label3";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(label4, "label4");
-            label4.BackColor = Color.Transparent;
-            label4.ForeColor = Color.White;
-            label4.Name = "label4";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(label5, "label5");
-            label5.BackColor = Color.Transparent;
-            label5.ForeColor = Color.White;
-            label5.Name = "label5";
-            // 
-            // label6
-            // 
-            resources.ApplyResources(label6, "label6");
-            label6.BackColor = Color.Transparent;
-            label6.ForeColor = Color.White;
-            label6.Name = "label6";
+            resources.ApplyResources(lblTitle, "lblTitle");
+            lblTitle.BackColor = Color.Transparent;
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Name = "lblTitle";
             // 
             // roundPictureBox1
             // 
@@ -163,19 +125,30 @@
             MyReservations.Padding = new Padding(4, 0, 4, 5);
             MyReservations.Click += menu_ItemClicked;
             // 
+            // lblDescription
+            // 
+            resources.ApplyResources(lblDescription, "lblDescription");
+            lblDescription.BackColor = Color.Transparent;
+            lblDescription.ForeColor = Color.White;
+            lblDescription.Name = "lblDescription";
+            // 
+            // lblStats
+            // 
+            resources.ApplyResources(lblStats, "lblStats");
+            lblStats.BackColor = Color.Transparent;
+            lblStats.ForeColor = Color.White;
+            lblStats.Name = "lblStats";
+            // 
             // AboutUs
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.appbackground;
+            Controls.Add(lblStats);
+            Controls.Add(lblDescription);
             Controls.Add(roundPictureBox1);
             Controls.Add(menu);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblTitle);
             DoubleBuffered = true;
             Name = "AboutUs";
             Load += AboutUs_Load;
@@ -187,12 +160,7 @@
         }
 
         #endregion
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
+        private Label lblTitle;
         private Utilities.RoundPictureBox roundPictureBox1;
         private MenuStrip menu;
         private ToolStripMenuItem Home;
@@ -203,5 +171,7 @@
         private ToolStripMenuItem manageProducts;
         private ToolStripMenuItem manageServices;
         private ToolStripMenuItem MyReservations;
+        private Label lblDescription;
+        private Label lblStats;
     }
 }
