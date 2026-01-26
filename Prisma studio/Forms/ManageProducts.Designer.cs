@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageProducts));
             dgvProducts = new DataGridView();
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
@@ -327,6 +328,7 @@
             Controls.Add(menu);
             Controls.Add(dgvProducts);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ManageProducts";
             Text = "ManageProducts";
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();

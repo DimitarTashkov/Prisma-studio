@@ -125,6 +125,7 @@
             // 
             menu.BackColor = SystemColors.ScrollBar;
             resources.ApplyResources(menu, "menu");
+            menu.ImageScalingSize = new Size(20, 20);
             menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, User, Reservations, MyReservations });
             menu.Name = "menu";
             // 

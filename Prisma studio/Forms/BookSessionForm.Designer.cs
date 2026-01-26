@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookSessionForm));
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
             Store = new ToolStripMenuItem();
@@ -241,6 +242,7 @@
             Controls.Add(label1);
             Controls.Add(menu);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "BookSessionForm";
             Text = "BookSessionForm";
             Load += BookSessionForm_Load;

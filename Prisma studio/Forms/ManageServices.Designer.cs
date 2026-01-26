@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageServices));
             btnBack = new Button();
             btnDelete = new Button();
             btnSave = new Button();
@@ -333,6 +334,7 @@
             Controls.Add(menu);
             Controls.Add(dgvServices);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ManageServices";
             Text = "ManageServices";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

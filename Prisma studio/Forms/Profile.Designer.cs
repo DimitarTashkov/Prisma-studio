@@ -175,7 +175,7 @@
             // 
             resources.ApplyResources(logo, "logo");
             logo.BackColor = Color.Transparent;
-            logo.BackgroundImage = Prisma_studio.Properties.Resources.logo;
+            logo.BackgroundImage = Properties.Resources.logo;
             logo.Name = "logo";
             logo.TabStop = false;
             // 
@@ -189,7 +189,7 @@
             // 
             resources.ApplyResources(formPanel, "formPanel");
             formPanel.BackColor = SystemColors.Control;
-            formPanel.BackgroundImage = Prisma_studio.Properties.Resources.gradient_img__4_;
+            formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
             formPanel.Controls.Add(pfpErrors);
             formPanel.Controls.Add(emailErrors);
             formPanel.Controls.Add(passwordErrors);
@@ -313,7 +313,7 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Prisma_studio.Properties.Resources.appbackground;
+            BackgroundImage = Properties.Resources.appbackground;
             Controls.Add(roundPictureBox1);
             Controls.Add(menu);
             Controls.Add(formPanel);

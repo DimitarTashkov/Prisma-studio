@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CartForm));
             flowPanelCart = new FlowLayoutPanel();
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
@@ -210,6 +211,7 @@
             Controls.Add(menu);
             Controls.Add(flowPanelCart);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CartForm";
             Text = "CartForm";
             Load += CartForm_Load;

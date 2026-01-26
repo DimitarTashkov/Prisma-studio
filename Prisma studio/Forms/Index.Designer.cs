@@ -75,14 +75,14 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Prisma_studio.Properties.Resources.photography;
+            pictureBox2.Image = Properties.Resources.photography;
             resources.ApplyResources(pictureBox2, "pictureBox2");
             pictureBox2.Name = "pictureBox2";
             pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Prisma_studio.Properties.Resources.store;
+            pictureBox1.Image = Properties.Resources.store;
             resources.ApplyResources(pictureBox1, "pictureBox1");
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;
@@ -173,7 +173,7 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Prisma_studio.Properties.Resources.gradient_img__4_;
+            BackgroundImage = Properties.Resources.gradient_img__4_;
             Controls.Add(welcomeMessage);
             Controls.Add(contactUs);
             Controls.Add(aboutUs);

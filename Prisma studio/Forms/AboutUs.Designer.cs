@@ -155,7 +155,7 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Prisma_studio.Properties.Resources.gradient_img__4_;
+            BackgroundImage = Properties.Resources.gradient_img__4_;
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);

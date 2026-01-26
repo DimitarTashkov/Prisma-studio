@@ -53,7 +53,7 @@
             // formPanel
             // 
             formPanel.BackColor = Color.White;
-            formPanel.BackgroundImage = Prisma_studio.Properties.Resources.gradient_img__4_;
+            formPanel.BackgroundImage = Properties.Resources.gradient_img__4_;
             resources.ApplyResources(formPanel, "formPanel");
             formPanel.Controls.Add(label8);
             formPanel.Controls.Add(label7);
@@ -183,7 +183,7 @@
             // logo
             // 
             logo.BackColor = Color.Transparent;
-            logo.BackgroundImage = Prisma_studio.Properties.Resources.logo;
+            logo.BackgroundImage = Properties.Resources.logo;
             resources.ApplyResources(logo, "logo");
             logo.Name = "logo";
             logo.TabStop = false;
@@ -200,7 +200,7 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Prisma_studio.Properties.Resources.appbackground;
+            BackgroundImage = Properties.Resources.appbackground;
             Controls.Add(formPanel);
             Controls.Add(label3);
             Name = "Login";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopForm));
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
             Store = new ToolStripMenuItem();
@@ -149,6 +150,7 @@
             Controls.Add(flowPanelProducts);
             Controls.Add(menu);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ShopForm";
             Text = "ShopForm";
             Load += ShopForm_Load;

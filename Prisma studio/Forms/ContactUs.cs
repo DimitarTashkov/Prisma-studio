@@ -1,7 +1,10 @@
-﻿using HotelOazis.Extensions;
-using HotelOazis.Models;
-using HotelOazis.Services.Interfaces;
-using HotelOazis.Utilities;
+﻿using Prisma_studio.Extensions;
+using Prisma_studio.Models;
+using Prisma_studio.Services.Interfaces;
+using Prisma_studio.Extensions;
+using Prisma_studio.Models;
+using Prisma_studio.Services.Interfaces;
+using Prisma_studio.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,22 +15,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HotelOazis.Forms
+namespace Prisma_studio.Forms
 {
     public partial class ContactUs : Form
     {
-        private readonly IUserService userService;
-        private readonly IRoomService roomService;
-        private readonly IFacilityService facilityService;
-        private readonly IReviewService reviewService;
+
         private User activeUser;
+        private readonly IUserService userService;
         public ContactUs()
         {
             this.userService = ServiceLocator.GetService<IUserService>();
             activeUser = userService.GetLoggedInUserAsync();
-            roomService = ServiceLocator.GetService<IRoomService>();
-            facilityService = ServiceLocator.GetService<IFacilityService>();
-            reviewService = ServiceLocator.GetService<IReviewService>();
+
             InitializeComponent();
         }
 

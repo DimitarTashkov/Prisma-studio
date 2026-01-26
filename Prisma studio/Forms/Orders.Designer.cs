@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Orders));
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
             Store = new ToolStripMenuItem();
@@ -201,6 +202,7 @@
             Controls.Add(tabHistory);
             Controls.Add(menu);
             DoubleBuffered = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Orders";
             Text = "Orders";
             menu.ResumeLayout(false);

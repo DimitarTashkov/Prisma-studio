@@ -121,7 +121,7 @@
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Prisma_studio.Properties.Resources.appbackground;
+            BackgroundImage = Properties.Resources.appbackground;
             Controls.Add(label2);
             Controls.Add(roundPictureBox1);
             Controls.Add(menu);
