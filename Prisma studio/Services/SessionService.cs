@@ -41,7 +41,7 @@ namespace Prisma_studio.Services
                 SessionDate = date.Date,
                 StartTime = time,
                 Notes = notes,
-                IsConfirmed = true
+                IsConfirmed = false
             };
 
             this.Context.PhotoSessions.Add(session);

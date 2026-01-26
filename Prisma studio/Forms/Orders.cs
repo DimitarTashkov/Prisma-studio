@@ -56,7 +56,7 @@ namespace Prisma_studio.Forms
         private void SetupGrids()
         {
             // --- SESSIONS GRID CONFIG ---
-            dgvSessions.AutoGenerateColumns = false; // We will handle columns manually or via DataSource mapping
+            dgvSessions.AutoGenerateColumns = true; // We will handle columns manually or via DataSource mapping
             dgvSessions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // Ако е Админ, добавяме бутони за действие
@@ -87,7 +87,7 @@ namespace Prisma_studio.Forms
             }
 
             // --- ORDERS GRID CONFIG ---
-            dgvOrders.AutoGenerateColumns = false;
+            dgvOrders.AutoGenerateColumns = true;
             dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             if (isAdmin)
