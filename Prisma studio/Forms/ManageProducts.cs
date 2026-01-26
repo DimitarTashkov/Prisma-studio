@@ -1,6 +1,9 @@
 ﻿using Prisma_studio.Data.Models;
 using Prisma_studio.Extensions;
+using Prisma_studio.Models;
+using Prisma_studio.Services;
 using Prisma_studio.Services.Interfaces;
+using Prisma_studio.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,23 +18,34 @@ namespace Prisma_studio.Forms
 {
     public partial class ManageProducts : Form
     {
-        private readonly IShopService _shopService;
+        private readonly IShopService shopService;
 
         // Тук пазим ID-то на продукта, който редактираме в момента.
         // Ако е null => значи правим НОВ продукт.
         private Guid? _selectedProductId = null;
         private string _selectedImagePath = null; // Пазим пътя до новата снимка
-        private readonly IUserService _userService;
+        private readonly IUserService userService;
+        private readonly ISessionService sessionService = ServiceLocator.GetService<ISessionService>();
+        private readonly IPhotoServiceManager serviceManager = ServiceLocator.GetService<IPhotoServiceManager>();
+        private User? activeUser;
 
         public ManageProducts(IShopService shopService)
         {
             InitializeComponent();
-            _shopService = shopService;
-            _userService = ServiceLocator.GetService<IUserService>();
+            this.shopService = shopService;
+            userService = ServiceLocator.GetService<IUserService>();
+            activeUser = userService.GetLoggedInUserAsync();
+            bool isAdmin = AuthorizationHelper.IsAuthorized();
+
+            if (isAdmin)
+            {
+                Users.Visible = true;
+                Management.Visible = true;
+            }
         }
         private void LoadGrid()
         {
-            var products = _shopService.GetAllProducts();
+            var products = shopService.GetAllProducts();
 
             // Мапваме към Grid-а
             dgvProducts.DataSource = products.Select(p => new
@@ -58,7 +72,7 @@ namespace Prisma_studio.Forms
                 var selectedId = (Guid)dgvProducts.SelectedRows[0].Cells["Id"].Value;
 
                 // Дърпаме целия продукт от базата
-                var product = _shopService.GetProductById(selectedId);
+                var product = shopService.GetProductById(selectedId);
                 FillForm(product);
             }
         }
@@ -157,7 +171,7 @@ namespace Prisma_studio.Forms
                         Description = txtDescription.Text,
                         ImageUrl = finalImagePath
                     };
-                    _shopService.AddProduct(newProduct);
+                    shopService.AddProduct(newProduct);
                     MessageBox.Show("Product added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -172,7 +186,7 @@ namespace Prisma_studio.Forms
                         Description = txtDescription.Text,
                         ImageUrl = finalImagePath
                     };
-                    _shopService.UpdateProduct(productToUpdate);
+                    shopService.UpdateProduct(productToUpdate);
                     MessageBox.Show("Product updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -192,7 +206,7 @@ namespace Prisma_studio.Forms
             var res = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
-                _shopService.DeleteProduct(_selectedProductId.Value);
+                shopService.DeleteProduct(_selectedProductId.Value);
                 LoadGrid();
                 btnNew.PerformClick();
             }
@@ -200,8 +214,50 @@ namespace Prisma_studio.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            var main = new Index(_userService); // Връщаме се
+            var main = new Index(userService); // Връщаме се
             Program.SwitchMainForm(main);
+        }
+        private void menu_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            string formName = item.Name;
+            Form form;
+
+            switch (formName)
+            {
+                case "Store":
+                    form = new ShopForm(shopService);
+                    break;
+                case "Services":
+                    form = new BookSessionForm(sessionService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService, activeUser.Id);
+                    break;
+                case "Users":
+                    form = new Users(userService);
+                    break;
+                case "MyReservations":
+                    form = new Orders(sessionService, shopService, userService);
+                    break;
+                case "manageproduct":
+                    form = new ManageProducts(shopService);
+                    break;
+                case "manageServices":
+                    form = new ManageServices(serviceManager);
+                    break;
+                case "Home":
+                default:
+                    form = new Index(userService);
+                    break;
+            }
+            Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService, activeUser.Id);
+            Program.SwitchMainForm(profileForm);
         }
     }
 }

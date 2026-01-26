@@ -1,5 +1,7 @@
 ﻿using Prisma_studio.Data.Models;
+using Prisma_studio.Extensions;
 using Prisma_studio.Models;
+using Prisma_studio.Services;
 using Prisma_studio.Services.Interfaces;
 using Prisma_studio.Utilities;
 using System;
@@ -16,26 +18,33 @@ namespace Prisma_studio.Forms
 {
     public partial class Orders : Form
     {
-        private readonly ISessionService _sessionService;
-        private readonly IShopService _shopService;
-        private readonly IUserService _userService;
+        private readonly ISessionService sessionService;
+        private readonly IShopService shopService;
+        private readonly IUserService userService;
+        private readonly IPhotoServiceManager serviceManager = ServiceLocator.GetService<IPhotoServiceManager>();
         private User? activeUser;
         private bool isAdmin;
 
         public Orders(ISessionService sessionService, IShopService shopService, IUserService userService)
         {
             InitializeComponent();
-            _sessionService = sessionService;
-            _shopService = shopService;
-            _userService = userService;
-            activeUser = _userService.GetLoggedInUserAsync();
+            this.sessionService = sessionService;
+            this.shopService = shopService;
+            this.userService = userService;
+            activeUser = this.userService.GetLoggedInUserAsync();
             isAdmin = AuthorizationHelper.IsAuthorized();
 
             if (isAdmin)
+            {
                 this.Text = "Admin Dashboard - All Records";
-            else
-                this.Text = $"My History - {activeUser.Username}";
 
+                Users.Visible = true;
+                Management.Visible = true;
+            }
+            else
+            {
+                this.Text = $"My History - {activeUser.Username}";
+            }
             // 3. Setup Grids (Add buttons if Admin)
             SetupGrids();
 
@@ -101,8 +110,8 @@ namespace Prisma_studio.Forms
             dgvSessions.DataSource = null; // Reset
 
             List<PhotoSession> sessions;
-            if (isAdmin) sessions = _sessionService.GetAllUpcomingSessions();
-            else sessions = _sessionService.GetUserSessions(activeUser.Id);
+            if (isAdmin) sessions = sessionService.GetAllUpcomingSessions();
+            else sessions = sessionService.GetUserSessions(activeUser.Id);
 
             // Mapping
             dgvSessions.DataSource = sessions.Select(s => new
@@ -124,8 +133,8 @@ namespace Prisma_studio.Forms
             dgvOrders.DataSource = null; // Reset
 
             List<Order> orders;
-            if (isAdmin) orders = _shopService.GetAllOrders();
-            else orders = _shopService.GetUserOrders(activeUser.Id);
+            if (isAdmin) orders = shopService.GetAllOrders();
+            else orders = shopService.GetUserOrders(activeUser.Id);
 
             // Mapping
             dgvOrders.DataSource = orders.Select(o => new
@@ -153,7 +162,7 @@ namespace Prisma_studio.Forms
 
                 if (colName == "Confirm")
                 {
-                    _sessionService.ConfirmSession(sessionId);
+                    sessionService.ConfirmSession(sessionId);
                     MessageBox.Show("Session Confirmed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadSessions(); // Refresh grid
                 }
@@ -161,7 +170,7 @@ namespace Prisma_studio.Forms
                 {
                     if (MessageBox.Show("Are you sure you want to decline/cancel this session?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        _sessionService.DeclineSession(sessionId);
+                        sessionService.DeclineSession(sessionId);
                         LoadSessions(); // Refresh grid
                     }
                 }
@@ -179,7 +188,7 @@ namespace Prisma_studio.Forms
                 {
                     if (MessageBox.Show("Mark this order as completed and shipped?", "Order Processing", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        _shopService.CompleteOrder(orderId);
+                        shopService.CompleteOrder(orderId);
                         MessageBox.Show("Order marked as completed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadOrders(); // Refresh grid
                     }
@@ -189,8 +198,50 @@ namespace Prisma_studio.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            var mainForm = new Index(_userService);
+            var mainForm = new Index(userService);
             Program.SwitchMainForm(mainForm);
+        }
+        private void menu_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            string formName = item.Name;
+            Form form;
+
+            switch (formName)
+            {
+                case "Store":
+                    form = new ShopForm(shopService);
+                    break;
+                case "Services":
+                    form = new BookSessionForm(sessionService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService, activeUser.Id);
+                    break;
+                case "Users":
+                    form = new Users(userService);
+                    break;
+                case "MyReservations":
+                    form = new Orders(sessionService, shopService, userService);
+                    break;
+                case "manageProducts":
+                    form = new ManageProducts(shopService);
+                    break;
+                case "manageServices":
+                    form = new ManageServices(serviceManager);
+                    break;
+                case "Home":
+                default:
+                    form = new Index(userService);
+                    break;
+            }
+            Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService, activeUser.Id);
+            Program.SwitchMainForm(profileForm);
         }
     }
 }

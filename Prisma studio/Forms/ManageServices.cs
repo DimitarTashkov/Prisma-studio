@@ -1,6 +1,9 @@
 ﻿using Prisma_studio.Data.Models;
 using Prisma_studio.Extensions;
+using Prisma_studio.Models;
+using Prisma_studio.Services;
 using Prisma_studio.Services.Interfaces;
+using Prisma_studio.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,25 +18,35 @@ namespace Prisma_studio.Forms
 {
     public partial class ManageServices : Form
     {
-        private readonly IPhotoServiceManager _serviceManager;
+        private readonly IPhotoServiceManager serviceManager;
 
         private Guid? _selectedServiceId = null;
         private string _selectedImagePath = null;
-        private readonly IUserService _userService;
+        private readonly IUserService userService;
+        private readonly IShopService shopService = ServiceLocator.GetService<IShopService>();
+        private readonly ISessionService sessionService = ServiceLocator.GetService<ISessionService>();
+        private User? activeUser;
 
         public ManageServices(IPhotoServiceManager serviceManager)
         {
             InitializeComponent();
-            _serviceManager = serviceManager;
-            _userService = ServiceLocator.GetService<IUserService>();
+            this.serviceManager = serviceManager;
+            userService = ServiceLocator.GetService<IUserService>();
+            activeUser = userService.GetLoggedInUserAsync();
+            bool isAdmin = AuthorizationHelper.IsAuthorized();
 
+            if (isAdmin)
+            {
+                Users.Visible = true;
+                Management.Visible = true;
+            }
             // UI Setup
 
             LoadGrid();
         }
         private void LoadGrid()
         {
-            var services = _serviceManager.GetAllServices();
+            var services = serviceManager.GetAllServices();
 
             // Mapping (English Columns)
             dgvServices.DataSource = services.Select(s => new
@@ -53,7 +66,7 @@ namespace Prisma_studio.Forms
             if (dgvServices.SelectedRows.Count > 0)
             {
                 var selectedId = (Guid)dgvServices.SelectedRows[0].Cells["ID"].Value;
-                var service = _serviceManager.GetServiceById(selectedId);
+                var service = serviceManager.GetServiceById(selectedId);
                 FillForm(service);
             }
         }
@@ -144,7 +157,7 @@ namespace Prisma_studio.Forms
                         Description = txtDescription.Text,
                         ImageUrl = finalImagePath
                     };
-                    _serviceManager.AddService(newService);
+                    serviceManager.AddService(newService);
                     MessageBox.Show("Service added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -159,7 +172,7 @@ namespace Prisma_studio.Forms
                         Description = txtDescription.Text,
                         ImageUrl = finalImagePath
                     };
-                    _serviceManager.UpdateService(serviceToUpdate);
+                    serviceManager.UpdateService(serviceToUpdate);
                     MessageBox.Show("Service updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -178,7 +191,7 @@ namespace Prisma_studio.Forms
 
             if (MessageBox.Show("Are you sure you want to delete this service?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                _serviceManager.DeleteService(_selectedServiceId.Value);
+                serviceManager.DeleteService(_selectedServiceId.Value);
                 LoadGrid();
                 btnNew.PerformClick();
             }
@@ -186,8 +199,50 @@ namespace Prisma_studio.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            var main = new Index(_userService);
+            var main = new Index(userService);
             Program.SwitchMainForm(main);
+        }
+        private void menu_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            string formName = item.Name;
+            Form form;
+
+            switch (formName)
+            {
+                case "Store":
+                    form = new ShopForm(shopService);
+                    break;
+                case "Services":
+                    form = new BookSessionForm(sessionService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService, activeUser.Id);
+                    break;
+                case "Users":
+                    form = new Users(userService);
+                    break;
+                case "MyReservations":
+                    form = new Orders(sessionService, shopService, userService);
+                    break;
+                case "manageProducts":
+                    form = new ManageProducts(shopService);
+                    break;
+                case "manageservice":
+                    form = new ManageServices(serviceManager);
+                    break;
+                case "Home":
+                default:
+                    form = new Index(userService);
+                    break;
+            }
+            Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService, activeUser.Id);
+            Program.SwitchMainForm(profileForm);
         }
     }
 }

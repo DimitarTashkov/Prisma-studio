@@ -1,8 +1,9 @@
 ﻿using Prisma_studio.Extensions;
-using Prisma_studio.Models;
-using Prisma_studio.Services.Interfaces;
 using Prisma_studio.Extensions;
 using Prisma_studio.Models;
+using Prisma_studio.Models;
+using Prisma_studio.Services;
+using Prisma_studio.Services.Interfaces;
 using Prisma_studio.Services.Interfaces;
 using Prisma_studio.Utilities;
 using System;
@@ -22,6 +23,9 @@ namespace Prisma_studio.Forms
 
         private User activeUser;
         private readonly IUserService userService;
+        private readonly IShopService shopService = ServiceLocator.GetService<IShopService>();
+        private readonly ISessionService sessionService = ServiceLocator.GetService<ISessionService>();
+        private readonly IPhotoServiceManager serviceManager = ServiceLocator.GetService<IPhotoServiceManager>();
         public ContactUs()
         {
             this.userService = ServiceLocator.GetService<IUserService>();
@@ -38,15 +42,10 @@ namespace Prisma_studio.Forms
             if (isAdmin)
             {
                 Users.Visible = true;
-                Reservations.Visible = true;
+                Management.Visible = true;
             }
         }
 
-        private void roundPictureBox1_Click(object sender, EventArgs e)
-        {
-            Profile profileForm = new Profile(userService, activeUser.Id);
-            Program.SwitchMainForm(profileForm);
-        }
         private void menu_ItemClicked(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
@@ -56,14 +55,11 @@ namespace Prisma_studio.Forms
 
             switch (formName)
             {
-                case "Rooms":
-                    form = new Rooms(roomService, userService);
+                case "Store":
+                    form = new ShopForm(shopService);
                     break;
                 case "Services":
-                    form = new Services(facilityService, userService);
-                    break;
-                case "Reviews":
-                    form = new Reviews(reviewService, userService);
+                    form = new BookSessionForm(sessionService, userService);
                     break;
                 case "Profile":
                     form = new Profile(userService, activeUser.Id);
@@ -72,8 +68,13 @@ namespace Prisma_studio.Forms
                     form = new Users(userService);
                     break;
                 case "MyReservations":
-                case "Reservations":
-                    form = new Reservations(userService, roomService);
+                    form = new Orders(sessionService, shopService, userService);
+                    break;
+                case "manageProducts":
+                    form = new ManageProducts(shopService);
+                    break;
+                case "manageServices":
+                    form = new ManageServices(serviceManager);
                     break;
                 case "Home":
                 default:
@@ -81,6 +82,11 @@ namespace Prisma_studio.Forms
                     break;
             }
             Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService, activeUser.Id);
+            Program.SwitchMainForm(profileForm);
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using Prisma_studio.Data.Models;
 using Prisma_studio.Extensions;
+using Prisma_studio.Models;
+using Prisma_studio.Services;
 using Prisma_studio.Services.Interfaces;
+using Prisma_studio.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,16 +18,22 @@ namespace Prisma_studio.Forms
 {
     public partial class ShopForm : Form
     {
-        private readonly IShopService _shopService;
-        private readonly IUserService _userService;
+        private readonly IShopService shopService;
+        private readonly IUserService userService;
+        private readonly ISessionService sessionService;
+        private readonly IPhotoServiceManager serviceManager;
+        private User? activeUser;
 
         // Виртуалната количка (пази ID на продукт и бройка)
         public static Dictionary<Guid, int> ShoppingCart = new Dictionary<Guid, int>();
         public ShopForm(IShopService shopService)
         {
             InitializeComponent();
-            _shopService = shopService;
-            _userService = ServiceLocator.GetService<IUserService>();
+            this.shopService = shopService;
+            userService = ServiceLocator.GetService<IUserService>();
+            sessionService = ServiceLocator.GetService<ISessionService>();
+            serviceManager = ServiceLocator.GetService<IPhotoServiceManager>();
+            activeUser = userService.GetLoggedInUserAsync();
 
             // Настройки на UI
             // Ако имаш lblTitle в дизайнера:
@@ -36,7 +45,13 @@ namespace Prisma_studio.Forms
 
         private void ShopForm_Load(object sender, EventArgs e)
         {
+            bool isAdmin = AuthorizationHelper.IsAuthorized();
 
+            if (isAdmin)
+            {
+                Users.Visible = true;
+                Management.Visible = true;
+            }
         }
         private void LoadProducts()
         {
@@ -44,7 +59,7 @@ namespace Prisma_studio.Forms
             flowPanelProducts.Controls.Clear();
 
             // Взимаме всички продукти
-            var products = _shopService.GetAllProducts();
+            var products = shopService.GetAllProducts();
 
             if (products.Count == 0)
             {
@@ -185,8 +200,50 @@ namespace Prisma_studio.Forms
 
             // Отиваме към CartForm
             // Подаваме същия сървис, за да има връзка с базата
-            var cartForm = new CartForm(_shopService,_userService);
+            var cartForm = new CartForm(shopService,userService);
             Program.SwitchMainForm(cartForm);
+        }
+        private void menu_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            string formName = item.Name;
+            Form form;
+
+            switch (formName)
+            {
+                case "Store":
+                    form = new ShopForm(shopService);
+                    break;
+                case "Services":
+                    form = new BookSessionForm(sessionService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService, activeUser.Id);
+                    break;
+                case "Users":
+                    form = new Users(userService);
+                    break;
+                case "MyReservations":
+                    form = new Orders(sessionService, shopService, userService);
+                    break;
+                case "manageProducts":
+                    form = new ManageProducts(shopService);
+                    break;
+                case "manageServices":
+                    form = new ManageServices(serviceManager);
+                    break;
+                case "Home":
+                default:
+                    form = new Index(userService);
+                    break;
+            }
+            Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService, activeUser.Id);
+            Program.SwitchMainForm(profileForm);
         }
     }
 }

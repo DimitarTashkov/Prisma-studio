@@ -30,48 +30,52 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
             footer = new Button();
-            serviceButton = new Button();
-            roomsButton = new Button();
+            storeButton = new Button();
+            servicesButton = new Button();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
             Store = new ToolStripMenuItem();
             Services = new ToolStripMenuItem();
-            Reviews = new ToolStripMenuItem();
             Users = new ToolStripMenuItem();
-            Reservations = new ToolStripMenuItem();
+            Management = new ToolStripMenuItem();
+            manageProducts = new ToolStripMenuItem();
+            manageServices = new ToolStripMenuItem();
             MyReservations = new ToolStripMenuItem();
             aboutUs = new Label();
             contactUs = new Label();
             welcomeMessage = new Label();
+            roundPictureBox1 = new Prisma_studio.Utilities.RoundPictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)roundPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // footer
             // 
             footer.BackColor = Color.Transparent;
+            footer.BackgroundImage = Properties.Resources.gradient_img__4_;
             resources.ApplyResources(footer, "footer");
             footer.Name = "footer";
             footer.UseVisualStyleBackColor = false;
             // 
-            // serviceButton
+            // storeButton
             // 
-            serviceButton.BackColor = SystemColors.ButtonFace;
-            resources.ApplyResources(serviceButton, "serviceButton");
-            serviceButton.Name = "serviceButton";
-            serviceButton.UseVisualStyleBackColor = false;
-            serviceButton.Click += servicesButton_Click;
+            storeButton.BackColor = SystemColors.ButtonFace;
+            resources.ApplyResources(storeButton, "storeButton");
+            storeButton.Name = "storeButton";
+            storeButton.UseVisualStyleBackColor = false;
+            storeButton.Click += store_button;
             // 
-            // roomsButton
+            // servicesButton
             // 
-            roomsButton.BackColor = SystemColors.ButtonFace;
-            resources.ApplyResources(roomsButton, "roomsButton");
-            roomsButton.Name = "roomsButton";
-            roomsButton.UseVisualStyleBackColor = false;
-            roomsButton.Click += roomsButton_Click;
+            servicesButton.BackColor = SystemColors.ButtonFace;
+            resources.ApplyResources(servicesButton, "servicesButton");
+            servicesButton.Name = "servicesButton";
+            servicesButton.UseVisualStyleBackColor = false;
+            servicesButton.Click += servicesButton_Click;
             // 
             // pictureBox2
             // 
@@ -90,9 +94,10 @@
             // menu
             // 
             menu.BackColor = SystemColors.ScrollBar;
+            menu.BackgroundImage = Properties.Resources.gradient_img__4_;
             resources.ApplyResources(menu, "menu");
             menu.ImageScalingSize = new Size(20, 20);
-            menu.Items.AddRange(new ToolStripItem[] { Home, Store, Services, Reviews, Users, Reservations, MyReservations });
+            menu.Items.AddRange(new ToolStripItem[] { Home, Store, Services, Users, Management, MyReservations });
             menu.Name = "menu";
             // 
             // Home
@@ -117,14 +122,6 @@
             resources.ApplyResources(Services, "Services");
             Services.Click += menu_ItemClicked;
             // 
-            // Reviews
-            // 
-            resources.ApplyResources(Reviews, "Reviews");
-            Reviews.ForeColor = SystemColors.ActiveCaptionText;
-            Reviews.Name = "Reviews";
-            Reviews.Padding = new Padding(4, 0, 4, 5);
-            Reviews.Click += menu_ItemClicked;
-            // 
             // Users
             // 
             resources.ApplyResources(Users, "Users");
@@ -133,11 +130,24 @@
             Users.Padding = new Padding(4, 0, 4, 5);
             Users.Click += menu_ItemClicked;
             // 
-            // Reservations
+            // Management
             // 
-            resources.ApplyResources(Reservations, "Reservations");
-            Reservations.Name = "Reservations";
-            Reservations.Click += menu_ItemClicked;
+            Management.DropDownItems.AddRange(new ToolStripItem[] { manageProducts, manageServices });
+            resources.ApplyResources(Management, "Management");
+            Management.Name = "Management";
+            Management.Click += menu_ItemClicked;
+            // 
+            // manageProducts
+            // 
+            manageProducts.Name = "manageProducts";
+            resources.ApplyResources(manageProducts, "manageProducts");
+            manageProducts.Click += menu_ItemClicked;
+            // 
+            // manageServices
+            // 
+            manageServices.Name = "manageServices";
+            resources.ApplyResources(manageServices, "manageServices");
+            manageServices.Click += menu_ItemClicked;
             // 
             // MyReservations
             // 
@@ -167,19 +177,28 @@
             // 
             welcomeMessage.BackColor = Color.Transparent;
             resources.ApplyResources(welcomeMessage, "welcomeMessage");
+            welcomeMessage.ForeColor = Color.White;
             welcomeMessage.Name = "welcomeMessage";
+            // 
+            // roundPictureBox1
+            // 
+            resources.ApplyResources(roundPictureBox1, "roundPictureBox1");
+            roundPictureBox1.Name = "roundPictureBox1";
+            roundPictureBox1.TabStop = false;
+            roundPictureBox1.Click += roundPictureBox1_Click;
             // 
             // Index
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.gradient_img__4_;
+            BackgroundImage = Properties.Resources.appbackground;
+            Controls.Add(roundPictureBox1);
             Controls.Add(welcomeMessage);
             Controls.Add(contactUs);
             Controls.Add(aboutUs);
             Controls.Add(footer);
-            Controls.Add(serviceButton);
-            Controls.Add(roomsButton);
+            Controls.Add(storeButton);
+            Controls.Add(servicesButton);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(menu);
@@ -190,6 +209,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             menu.ResumeLayout(false);
             menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)roundPictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -197,20 +217,22 @@
         #endregion
 
         private Button footer;
-        private Button serviceButton;
-        private Button roomsButton;
+        private Button storeButton;
+        private Button servicesButton;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private MenuStrip menu;
         private ToolStripMenuItem Store;
         private ToolStripMenuItem Services;
-        private ToolStripMenuItem Reviews;
         private ToolStripMenuItem Users;
         private ToolStripMenuItem MyReservations;
-        private ToolStripMenuItem Reservations;
+        private ToolStripMenuItem Management;
         private ToolStripMenuItem Home;
         private Label aboutUs;
         private Label contactUs;
         private Label welcomeMessage;
+        private ToolStripMenuItem manageProducts;
+        private ToolStripMenuItem manageServices;
+        private Utilities.RoundPictureBox roundPictureBox1;
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Prisma_studio.Data.Models;
+using Prisma_studio.Extensions;
 using Prisma_studio.Models;
 using Prisma_studio.Services;
 using Prisma_studio.Services.Interfaces;
+using Prisma_studio.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,26 +18,36 @@ namespace Prisma_studio.Forms
 {
     public partial class CartForm : Form
     {
-        private readonly IShopService _shopService;
-        private readonly IUserService _userService; // Добавен, както поиска
+        private readonly IShopService shopService;
+        private readonly IUserService userService; // Добавен, както поиска
+        private readonly ISessionService sessionService;
+        private readonly IPhotoServiceManager serviceManager;
         User? activeUser;
 
         public CartForm(IShopService shopService, IUserService userService)
         {
             InitializeComponent();
-            _shopService = shopService;
+            this.shopService = shopService;
 
             // Настройки на UI
             // this.Text = "Вашата количка";
 
             LoadCartItems();
-            _userService = userService;
-            activeUser = _userService.GetLoggedInUserAsync();
+            this.userService = userService;
+            activeUser = this.userService.GetLoggedInUserAsync();
+            this.sessionService = ServiceLocator.GetService<ISessionService>();
+            this.serviceManager = ServiceLocator.GetService<IPhotoServiceManager>();
         }
 
         private void CartForm_Load(object sender, EventArgs e)
         {
+            bool isAdmin = AuthorizationHelper.IsAuthorized();
 
+            if (isAdmin)
+            {
+                Users.Visible = true;
+                Management.Visible = true;
+            }
         }
         private void LoadCartItems()
         {
@@ -60,7 +72,7 @@ namespace Prisma_studio.Forms
                 Guid productId = item.Key;
                 int quantity = item.Value;
 
-                var product = _shopService.GetProductById(productId);
+                var product = shopService.GetProductById(productId);
                 if (product != null)
                 {
                     Panel row = CreateCartRow(product, quantity);
@@ -180,7 +192,7 @@ namespace Prisma_studio.Forms
                 string address = textBox1.Text; // Може да сложиш txtAddress.Text
                 string phone = textBox2.Text;
 
-                Guid orderId = _shopService.CreateOrder(activeUser.Id, ShopForm.ShoppingCart, address, phone);
+                Guid orderId = shopService.CreateOrder(activeUser.Id, ShopForm.ShoppingCart, address, phone);
 
                 string invoiceText = GenerateInvoiceText(orderId, address, phone);
 
@@ -189,7 +201,7 @@ namespace Prisma_studio.Forms
 
 
                 // Връщаме се в магазина (или в профила)
-                var shopForm = new ShopForm(_shopService);
+                var shopForm = new ShopForm(shopService);
                 Program.SwitchMainForm(shopForm);
             }
             catch (Exception ex)
@@ -217,7 +229,7 @@ namespace Prisma_studio.Forms
 
             foreach (var item in ShopForm.ShoppingCart)
             {
-                var product = _shopService.GetProductById(item.Key);
+                var product = shopService.GetProductById(item.Key);
                 if (product != null)
                 {
                     decimal lineTotal = product.Price * item.Value;
@@ -240,8 +252,50 @@ namespace Prisma_studio.Forms
         private void btnBack_Click(object sender, EventArgs e)
         {
             // Връщаме се обратно в Магазина, за да продължим пазаруването
-            var shopForm = new ShopForm(_shopService);
+            var shopForm = new ShopForm(shopService);
             Program.SwitchMainForm(shopForm);
+        }
+        private void menu_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            string formName = item.Name;
+            Form form;
+
+            switch (formName)
+            {
+                case "Store":
+                    form = new ShopForm(shopService);
+                    break;
+                case "Services":
+                    form = new BookSessionForm(sessionService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService, activeUser.Id);
+                    break;
+                case "Users":
+                    form = new Users(userService);
+                    break;
+                case "MyReservations":
+                    form = new Orders(sessionService, shopService, userService);
+                    break;
+                case "manageProducts":
+                    form = new ManageProducts(shopService);
+                    break;
+                case "manageServices":
+                    form = new ManageServices(serviceManager);
+                    break;
+                case "Home":
+                default:
+                    form = new Index(userService);
+                    break;
+            }
+            Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService, activeUser.Id);
+            Program.SwitchMainForm(profileForm);
         }
     }
 }

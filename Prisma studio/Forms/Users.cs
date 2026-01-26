@@ -1,29 +1,32 @@
-﻿using Prisma_studio.Utilities;
+﻿using Prisma_studio;
 using Prisma_studio.Common.Constants;
 using Prisma_studio.Extensions;
 using Prisma_studio.Models;
+using Prisma_studio.Services;
 using Prisma_studio.Services.Interfaces;
+using Prisma_studio.Utilities;
 using static Prisma_studio.Utilities.DynamicContentTranslator.EntitiesTranslation;
-using Prisma_studio;
 
 namespace Prisma_studio.Forms
 {
     public partial class Users : Form
     {
-        private readonly IFacilityService facilityService;
         private readonly IUserService userService;
-        private readonly IReviewService reviewService;
-        private readonly IRoomService roomService;
+        private readonly ISessionService sessionService;
+        private readonly IPhotoServiceManager serviceManager;
+        private readonly IShopService shopService;
         private User activeUser;
 
         public Users(IUserService userService)
         {
             InitializeComponent();
             this.userService = userService;
-            this.facilityService = ServiceLocator.GetService<IFacilityService>();
-            this.reviewService = ServiceLocator.GetService<IReviewService>();
-            this.roomService = ServiceLocator.GetService<IRoomService>();
+            this.sessionService = ServiceLocator.GetService<ISessionService>();
+            this.serviceManager = ServiceLocator.GetService<IPhotoServiceManager>();
+            this.shopService = ServiceLocator.GetService<IShopService>();
             activeUser = userService.GetLoggedInUserAsync();
+
+
         }
 
         private async void Users_Load(object sender, EventArgs e)
@@ -162,25 +165,44 @@ namespace Prisma_studio.Forms
         private void menu_ItemClicked(object sender, EventArgs e)
         {
             ToolStripMenuItem item = sender as ToolStripMenuItem;
-            Form form = item?.Name switch
+
+            string formName = item.Name;
+            Form form;
+
+            switch (formName)
             {
-                "Rooms" => new Rooms(roomService, userService),
-                "Services" => new Services(facilityService, userService),
-                "Reviews" => new Reviews(reviewService, userService),
-                "Profile" => new Profile(userService, activeUser.Id),
-                "User" => new Users(userService),
-                "MyReservations" => new Reservations(userService, roomService),
-                "Reservations" => new Reservations(userService, roomService),
-                "Home" => new Index(userService),
-                _ => new Index(userService),
-            };
+                case "Store":
+                    form = new ShopForm(shopService);
+                    break;
+                case "Services":
+                    form = new BookSessionForm(sessionService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService, activeUser.Id);
+                    break;
+                case "User":
+                    form = new Users(userService);
+                    break;
+                case "MyReservations":
+                    form = new Orders(sessionService, shopService, userService);
+                    break;
+                case "manageProducts":
+                    form = new ManageProducts(shopService);
+                    break;
+                case "manageServices":
+                    form = new ManageServices(serviceManager);
+                    break;
+                case "Home":
+                default:
+                    form = new Index(userService);
+                    break;
+            }
             Program.SwitchMainForm(form);
         }
-
         private void roundPictureBox1_Click(object sender, EventArgs e)
         {
-            var profileForm = new Profile(userService, activeUser.Id);
+            Profile profileForm = new Profile(userService, activeUser.Id);
             Program.SwitchMainForm(profileForm);
         }
     }
-}}
+}

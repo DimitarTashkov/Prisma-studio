@@ -43,21 +43,24 @@
             label3 = new Label();
             txtName = new TextBox();
             label1 = new Label();
-            MyReservations = new ToolStripMenuItem();
-            Reservations = new ToolStripMenuItem();
-            Users = new ToolStripMenuItem();
-            Reviews = new ToolStripMenuItem();
-            Services = new ToolStripMenuItem();
-            Store = new ToolStripMenuItem();
-            Home = new ToolStripMenuItem();
             label2 = new Label();
-            menu = new MenuStrip();
             dgvServices = new DataGridView();
+            roundPictureBox1 = new Prisma_studio.Utilities.RoundPictureBox();
+            menu = new MenuStrip();
+            Home = new ToolStripMenuItem();
+            Store = new ToolStripMenuItem();
+            Services = new ToolStripMenuItem();
+            Users = new ToolStripMenuItem();
+            Management = new ToolStripMenuItem();
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            manageservice = new ToolStripMenuItem();
+            MyReservations = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numDuration).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPrice).BeginInit();
-            menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvServices).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)roundPictureBox1).BeginInit();
+            menu.SuspendLayout();
             SuspendLayout();
             // 
             // btnBack
@@ -211,65 +214,6 @@
             label1.TabIndex = 30;
             label1.Text = "Name:";
             // 
-            // MyReservations
-            // 
-            MyReservations.Font = new Font("Verdana", 12F, FontStyle.Bold);
-            MyReservations.ForeColor = SystemColors.ActiveCaptionText;
-            MyReservations.Name = "MyReservations";
-            MyReservations.Padding = new Padding(4, 0, 4, 5);
-            MyReservations.Size = new Size(203, 34);
-            MyReservations.Text = "My reservations";
-            // 
-            // Reservations
-            // 
-            Reservations.Font = new Font("Verdana", 12F, FontStyle.Bold);
-            Reservations.Name = "Reservations";
-            Reservations.Size = new Size(172, 34);
-            Reservations.Text = "Reservations";
-            Reservations.Visible = false;
-            // 
-            // Users
-            // 
-            Users.Font = new Font("Verdana", 12F, FontStyle.Bold);
-            Users.ForeColor = SystemColors.MenuText;
-            Users.Name = "Users";
-            Users.Padding = new Padding(4, 0, 4, 5);
-            Users.Size = new Size(87, 34);
-            Users.Text = "Users";
-            Users.Visible = false;
-            // 
-            // Reviews
-            // 
-            Reviews.BackgroundImageLayout = ImageLayout.Center;
-            Reviews.Font = new Font("Verdana", 12F, FontStyle.Bold);
-            Reviews.ForeColor = SystemColors.ActiveCaptionText;
-            Reviews.Name = "Reviews";
-            Reviews.Padding = new Padding(4, 0, 4, 5);
-            Reviews.Size = new Size(70, 34);
-            Reviews.Text = "Cart";
-            // 
-            // Services
-            // 
-            Services.ForeColor = SystemColors.ActiveCaptionText;
-            Services.Name = "Services";
-            Services.Padding = new Padding(4, 0, 4, 5);
-            Services.Size = new Size(118, 34);
-            Services.Text = "Services";
-            // 
-            // Store
-            // 
-            Store.ForeColor = SystemColors.ActiveCaptionText;
-            Store.Name = "Store";
-            Store.Padding = new Padding(4, 0, 4, 5);
-            Store.Size = new Size(84, 34);
-            Store.Text = "Store";
-            // 
-            // Home
-            // 
-            Home.Name = "Home";
-            Home.Size = new Size(91, 34);
-            Home.Text = "Home";
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -281,20 +225,6 @@
             label2.Size = new Size(293, 38);
             label2.TabIndex = 31;
             label2.Text = "Service management";
-            // 
-            // menu
-            // 
-            menu.BackColor = SystemColors.ScrollBar;
-            menu.BackgroundImageLayout = ImageLayout.Stretch;
-            menu.Font = new Font("Verdana", 12F, FontStyle.Bold);
-            menu.ImageScalingSize = new Size(20, 20);
-            menu.Items.AddRange(new ToolStripItem[] { Home, Store, Services, Reviews, Users, Reservations, MyReservations });
-            menu.Location = new Point(0, 0);
-            menu.Name = "menu";
-            menu.Padding = new Padding(7, 1, 0, 7);
-            menu.Size = new Size(982, 42);
-            menu.TabIndex = 29;
-            menu.Text = "Menu";
             // 
             // dgvServices
             // 
@@ -309,6 +239,100 @@
             dgvServices.TabIndex = 28;
             dgvServices.SelectionChanged += dgvServices_SelectionChanged;
             // 
+            // roundPictureBox1
+            // 
+            roundPictureBox1.ImeMode = ImeMode.NoControl;
+            roundPictureBox1.Location = new Point(920, 0);
+            roundPictureBox1.Name = "roundPictureBox1";
+            roundPictureBox1.Size = new Size(57, 47);
+            roundPictureBox1.TabIndex = 46;
+            roundPictureBox1.TabStop = false;
+            roundPictureBox1.Click += roundPictureBox1_Click;
+            // 
+            // menu
+            // 
+            menu.BackColor = SystemColors.ScrollBar;
+            menu.BackgroundImage = Properties.Resources.gradient_img__4_;
+            menu.BackgroundImageLayout = ImageLayout.Stretch;
+            menu.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            menu.ImageScalingSize = new Size(20, 20);
+            menu.Items.AddRange(new ToolStripItem[] { Home, Store, Services, Users, Management, MyReservations });
+            menu.Location = new Point(0, 0);
+            menu.Name = "menu";
+            menu.Padding = new Padding(7, 1, 0, 7);
+            menu.Size = new Size(982, 42);
+            menu.TabIndex = 45;
+            menu.Text = "Menu";
+            // 
+            // Home
+            // 
+            Home.Name = "Home";
+            Home.Size = new Size(91, 34);
+            Home.Text = "Home";
+            Home.Click += menu_ItemClicked;
+            // 
+            // Store
+            // 
+            Store.ForeColor = SystemColors.ActiveCaptionText;
+            Store.Name = "Store";
+            Store.Padding = new Padding(4, 0, 4, 5);
+            Store.Size = new Size(84, 34);
+            Store.Text = "Store";
+            Store.Click += menu_ItemClicked;
+            // 
+            // Services
+            // 
+            Services.ForeColor = SystemColors.ActiveCaptionText;
+            Services.Name = "Services";
+            Services.Padding = new Padding(4, 0, 4, 5);
+            Services.Size = new Size(118, 34);
+            Services.Text = "Services";
+            Services.Click += menu_ItemClicked;
+            // 
+            // Users
+            // 
+            Users.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            Users.ForeColor = SystemColors.MenuText;
+            Users.Name = "Users";
+            Users.Padding = new Padding(4, 0, 4, 5);
+            Users.Size = new Size(87, 34);
+            Users.Text = "Users";
+            Users.Visible = false;
+            Users.Click += menu_ItemClicked;
+            // 
+            // Management
+            // 
+            Management.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem1, manageservice });
+            Management.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            Management.Name = "Management";
+            Management.Size = new Size(169, 34);
+            Management.Text = "Management";
+            Management.Visible = false;
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(224, 30);
+            toolStripMenuItem1.Text = "Products";
+            toolStripMenuItem1.Click += menu_ItemClicked;
+            // 
+            // manageservice
+            // 
+            manageservice.Name = "manageservice";
+            manageservice.Size = new Size(224, 30);
+            manageservice.Text = "Services";
+            manageservice.Click += menu_ItemClicked;
+            // 
+            // MyReservations
+            // 
+            MyReservations.Font = new Font("Verdana", 12F, FontStyle.Bold);
+            MyReservations.ForeColor = SystemColors.ActiveCaptionText;
+            MyReservations.Name = "MyReservations";
+            MyReservations.Padding = new Padding(4, 0, 4, 5);
+            MyReservations.Size = new Size(136, 34);
+            MyReservations.Text = "My orders";
+            MyReservations.Click += menu_ItemClicked;
+            // 
             // ManageServices
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -316,6 +340,8 @@
             BackgroundImage = Properties.Resources.appbackground;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(982, 553);
+            Controls.Add(roundPictureBox1);
+            Controls.Add(menu);
             Controls.Add(btnBack);
             Controls.Add(btnDelete);
             Controls.Add(btnSave);
@@ -331,7 +357,6 @@
             Controls.Add(txtName);
             Controls.Add(label1);
             Controls.Add(label2);
-            Controls.Add(menu);
             Controls.Add(dgvServices);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -340,9 +365,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numDuration).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPrice).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvServices).EndInit();
+            ((System.ComponentModel.ISupportInitialize)roundPictureBox1).EndInit();
             menu.ResumeLayout(false);
             menu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvServices).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -363,15 +389,17 @@
         private Label label3;
         private TextBox txtName;
         private Label label1;
-        private ToolStripMenuItem MyReservations;
-        private ToolStripMenuItem Reservations;
-        private ToolStripMenuItem Users;
-        private ToolStripMenuItem Reviews;
-        private ToolStripMenuItem Services;
-        private ToolStripMenuItem Store;
-        private ToolStripMenuItem Home;
         private Label label2;
-        private MenuStrip menu;
         private DataGridView dgvServices;
+        private Utilities.RoundPictureBox roundPictureBox1;
+        private MenuStrip menu;
+        private ToolStripMenuItem Home;
+        private ToolStripMenuItem Store;
+        private ToolStripMenuItem Services;
+        private ToolStripMenuItem Users;
+        private ToolStripMenuItem Management;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem manageservice;
+        private ToolStripMenuItem MyReservations;
     }
 }

@@ -11,18 +11,20 @@ namespace Prisma_studio.Forms
     public partial class Index : Form
     {
         private readonly IUserService userService;
-        private readonly IRoomService roomService;
-        private readonly IFacilityService facilityService;
-        private readonly IReviewService reviewService;
+        private readonly IShopService shopService;
+        private readonly ISessionService sessionService;
+        private readonly IPhotoServiceManager serviceManager;
+
         private User activeUser;
 
         public Index(IUserService userService)
         {
             this.userService = userService;
+            this.shopService = ServiceLocator.GetService<IShopService>();
+            this.sessionService = ServiceLocator.GetService<ISessionService>();
+            this.serviceManager = ServiceLocator.GetService<IPhotoServiceManager>();
             activeUser = userService.GetLoggedInUserAsync();
-            roomService = ServiceLocator.GetService<IRoomService>();
-            facilityService = ServiceLocator.GetService<IFacilityService>();
-            reviewService = ServiceLocator.GetService<IReviewService>();
+
 
             InitializeComponent();
             ApplyCustomStyles(); // Приложи стилизация
@@ -40,7 +42,7 @@ namespace Prisma_studio.Forms
             if (isAdmin)
             {
                 Users.Visible = true;
-                Reservations.Visible = true;
+                Management.Visible = true;
             }
         }
 
@@ -50,15 +52,15 @@ namespace Prisma_studio.Forms
             Program.SwitchMainForm(profileForm);
         }
 
-        private void roomsButton_Click(object sender, EventArgs e)
+        private void store_button(object sender, EventArgs e)
         {
-            Rooms roomsForm = new Rooms(roomService, userService);
+            ShopForm roomsForm = new ShopForm(shopService);
             Program.SwitchMainForm(roomsForm);
         }
 
         private void servicesButton_Click(object sender, EventArgs e)
         {
-            Services servicesForm = new Services(facilityService, userService);
+            BookSessionForm servicesForm = new BookSessionForm(sessionService, userService);
             Program.SwitchMainForm(servicesForm);
         }
 
@@ -71,14 +73,11 @@ namespace Prisma_studio.Forms
 
             switch (formName)
             {
-                case "Rooms":
-                    form = new Rooms(roomService, userService);
+                case "Store":
+                    form = new ShopForm(shopService);
                     break;
                 case "Services":
-                    form = new Services(facilityService, userService);
-                    break;
-                case "Reviews":
-                    form = new Reviews(reviewService, userService);
+                    form = new BookSessionForm(sessionService, userService);
                     break;
                 case "Profile":
                     form = new Profile(userService, activeUser.Id);
@@ -87,8 +86,13 @@ namespace Prisma_studio.Forms
                     form = new Users(userService);
                     break;
                 case "MyReservations":
-                case "Reservations":
-                    form = new Reservations(userService, roomService);
+                    form = new Orders(sessionService,shopService,userService);
+                    break;
+                case "manageProducts":
+                    form = new ManageProducts(shopService);
+                    break;
+                case "manageServices":
+                    form = new ManageServices(serviceManager);
                     break;
                 case "Home":
                 default:
@@ -101,10 +105,10 @@ namespace Prisma_studio.Forms
         // === Променен дизайн ===
         private void ApplyCustomStyles()
         {
-            this.BackColor = Color.FromArgb(230, 240, 250); // Лек син фон
-
             foreach (Control ctrl in this.Controls)
             {
+                this.BackColor = Color.FromArgb(230, 240, 250); // Лек син фон
+
                 if (ctrl is Button btn)
                 {
                     btn.BackColor = Color.FromArgb(70, 130, 180); // Стилен син

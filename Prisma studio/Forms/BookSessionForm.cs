@@ -1,7 +1,9 @@
 ﻿using Prisma_studio.Data.Models;
 using Prisma_studio.Extensions;
 using Prisma_studio.Models;
+using Prisma_studio.Services;
 using Prisma_studio.Services.Interfaces;
+using Prisma_studio.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,9 +18,11 @@ namespace Prisma_studio.Forms
 {
     public partial class BookSessionForm : Form
     {
-        private readonly ISessionService _sessionService;
-        private readonly IUserService _userService;
-        private readonly IPhotoServiceManager _photoManager;
+        private readonly ISessionService sessionService;
+        private readonly IUserService userService;
+        private readonly IPhotoServiceManager photoManager;
+        private readonly IShopService shopService = ServiceLocator.GetService<IShopService>();
+        private readonly IPhotoServiceManager serviceManager = ServiceLocator.GetService<IPhotoServiceManager>();
 
         // 2. Data fields
         private User activeUser;
@@ -27,18 +31,18 @@ namespace Prisma_studio.Forms
         public BookSessionForm(ISessionService sessionService, IUserService userService)
         {
             InitializeComponent();
-            _sessionService = sessionService;
-            _userService = userService;
+            this.sessionService = sessionService;
+            this.userService = userService;
 
             // Get the third service manually using ServiceLocator
-            _photoManager = ServiceLocator.GetService<IPhotoServiceManager>();
-            activeUser = _userService.GetLoggedInUserAsync();
+            photoManager = ServiceLocator.GetService<IPhotoServiceManager>();
+            activeUser = this.userService.GetLoggedInUserAsync();
             dtpDate.MinDate = DateTime.Today; // Disable past dates
             LoadServices();
         }
         private void LoadServices()
         {
-            loadedServices = _photoManager.GetAllServices();
+            loadedServices = photoManager.GetAllServices();
 
             // If no services exist
             if (loadedServices.Count == 0)
@@ -74,7 +78,7 @@ namespace Prisma_studio.Forms
             try
             {
                 // Call Service to get slots
-                List<TimeSpan> freeSlots = _sessionService.GetAvailableSlots(selectedDate, selectedService.DurationMinutes);
+                List<TimeSpan> freeSlots = sessionService.GetAvailableSlots(selectedDate, selectedService.DurationMinutes);
 
                 if (freeSlots.Count == 0)
                 {
@@ -118,7 +122,7 @@ namespace Prisma_studio.Forms
             {
                 MessageBox.Show("Please log in to book a session!");
 
-                var login = new Login(_userService);
+                var login = new Login(userService);
                 Program.SwitchMainForm(login);
                 return;
             }
@@ -139,14 +143,14 @@ namespace Prisma_studio.Forms
             // 4. Save to Database
             try
             {
-                bool success = _sessionService.BookSession(activeUser.Id, selectedService.Id, date, selectedTime, notes);
+                bool success = sessionService.BookSession(activeUser.Id, selectedService.Id, date, selectedTime, notes);
 
                 if (success)
                 {
                     MessageBox.Show("Session booked successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Go back to Main Menu (Index)
-                    var mainForm = new Index(_userService);
+                    var mainForm = new Index(userService);
                     Program.SwitchMainForm(mainForm);
                 }
                 else
@@ -163,13 +167,61 @@ namespace Prisma_studio.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            var mainForm = new Index(_userService);
+            var mainForm = new Index(userService);
             Program.SwitchMainForm(mainForm);
+        }
+        private void menu_ItemClicked(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+
+            string formName = item.Name;
+            Form form;
+
+            switch (formName)
+            {
+                case "Store":
+                    form = new ShopForm(shopService);
+                    break;
+                case "Services":
+                    form = new BookSessionForm(sessionService, userService);
+                    break;
+                case "Profile":
+                    form = new Profile(userService, activeUser.Id);
+                    break;
+                case "Users":
+                    form = new Users(userService);
+                    break;
+                case "MyReservations":
+                    form = new Orders(sessionService, shopService, userService);
+                    break;
+                case "manageProducts":
+                    form = new ManageProducts(shopService);
+                    break;
+                case "manageServices":
+                    form = new ManageServices(serviceManager);
+                    break;
+                case "Home":
+                default:
+                    form = new Index(userService);
+                    break;
+            }
+            Program.SwitchMainForm(form);
+        }
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            Profile profileForm = new Profile(userService, activeUser.Id);
+            Program.SwitchMainForm(profileForm);
         }
 
         private void BookSessionForm_Load(object sender, EventArgs e)
         {
+            bool isAdmin = AuthorizationHelper.IsAuthorized();
 
+            if (isAdmin)
+            {
+                Users.Visible = true;
+                Management.Visible = true;
+            }
         }
     }
 }

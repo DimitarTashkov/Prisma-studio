@@ -42,11 +42,12 @@
             roundPictureBox1 = new Prisma_studio.Utilities.RoundPictureBox();
             menu = new MenuStrip();
             Home = new ToolStripMenuItem();
-            Rooms = new ToolStripMenuItem();
+            Store = new ToolStripMenuItem();
             Services = new ToolStripMenuItem();
-            Reviews = new ToolStripMenuItem();
             User = new ToolStripMenuItem();
-            Reservations = new ToolStripMenuItem();
+            Management = new ToolStripMenuItem();
+            manageProducts = new ToolStripMenuItem();
+            manageServices = new ToolStripMenuItem();
             MyReservations = new ToolStripMenuItem();
             usersContainer.SuspendLayout();
             usersHeaders.SuspendLayout();
@@ -124,9 +125,10 @@
             // menu
             // 
             menu.BackColor = SystemColors.ScrollBar;
+            menu.BackgroundImage = Properties.Resources.gradient_img__4_;
             resources.ApplyResources(menu, "menu");
             menu.ImageScalingSize = new Size(20, 20);
-            menu.Items.AddRange(new ToolStripItem[] { Home, Rooms, Services, Reviews, User, Reservations, MyReservations });
+            menu.Items.AddRange(new ToolStripItem[] { Home, Store, Services, User, Management, MyReservations });
             menu.Name = "menu";
             // 
             // Home
@@ -135,13 +137,13 @@
             resources.ApplyResources(Home, "Home");
             Home.Click += menu_ItemClicked;
             // 
-            // Rooms
+            // Store
             // 
-            Rooms.ForeColor = SystemColors.ActiveCaptionText;
-            Rooms.Name = "Rooms";
-            Rooms.Padding = new Padding(4, 0, 4, 5);
-            resources.ApplyResources(Rooms, "Rooms");
-            Rooms.Click += menu_ItemClicked;
+            Store.ForeColor = SystemColors.ActiveCaptionText;
+            Store.Name = "Store";
+            Store.Padding = new Padding(4, 0, 4, 5);
+            resources.ApplyResources(Store, "Store");
+            Store.Click += menu_ItemClicked;
             // 
             // Services
             // 
@@ -151,14 +153,6 @@
             resources.ApplyResources(Services, "Services");
             Services.Click += menu_ItemClicked;
             // 
-            // Reviews
-            // 
-            resources.ApplyResources(Reviews, "Reviews");
-            Reviews.ForeColor = SystemColors.ActiveCaptionText;
-            Reviews.Name = "Reviews";
-            Reviews.Padding = new Padding(4, 0, 4, 5);
-            Reviews.Click += menu_ItemClicked;
-            // 
             // User
             // 
             resources.ApplyResources(User, "User");
@@ -167,11 +161,23 @@
             User.Padding = new Padding(4, 0, 4, 5);
             User.Click += menu_ItemClicked;
             // 
-            // Reservations
+            // Management
             // 
-            resources.ApplyResources(Reservations, "Reservations");
-            Reservations.Name = "Reservations";
-            Reservations.Click += menu_ItemClicked;
+            Management.DropDownItems.AddRange(new ToolStripItem[] { manageProducts, manageServices });
+            resources.ApplyResources(Management, "Management");
+            Management.Name = "Management";
+            // 
+            // manageProducts
+            // 
+            manageProducts.Name = "manageProducts";
+            resources.ApplyResources(manageProducts, "manageProducts");
+            manageProducts.Click += menu_ItemClicked;
+            // 
+            // manageServices
+            // 
+            manageServices.Name = "manageServices";
+            resources.ApplyResources(manageServices, "manageServices");
+            manageServices.Click += menu_ItemClicked;
             // 
             // MyReservations
             // 
@@ -212,14 +218,15 @@
         private Label label1;
         private Label dateHeader;
         private Label arriveHeader;
-        private Prisma_studio.Utilities.RoundPictureBox roundPictureBox1;
+        private Utilities.RoundPictureBox roundPictureBox1;
         private MenuStrip menu;
         private ToolStripMenuItem Home;
-        private ToolStripMenuItem Rooms;
+        private ToolStripMenuItem Store;
         private ToolStripMenuItem Services;
-        private ToolStripMenuItem Reviews;
         private ToolStripMenuItem User;
-        private ToolStripMenuItem Reservations;
+        private ToolStripMenuItem Management;
+        private ToolStripMenuItem manageProducts;
+        private ToolStripMenuItem manageServices;
         private ToolStripMenuItem MyReservations;
     }
 }
