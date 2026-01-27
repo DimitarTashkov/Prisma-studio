@@ -64,6 +64,7 @@
             // usersHeaders
             // 
             usersHeaders.BackColor = Color.Cyan;
+            usersHeaders.BackgroundImage = Properties.Resources.gradient_img__4_;
             usersHeaders.Controls.Add(usernameHeader);
             usersHeaders.Controls.Add(passwordHeader);
             usersHeaders.Controls.Add(emailHeader);
@@ -78,31 +79,37 @@
             // usernameHeader
             // 
             resources.ApplyResources(usernameHeader, "usernameHeader");
+            usernameHeader.BackColor = Color.Transparent;
             usernameHeader.Name = "usernameHeader";
             // 
             // passwordHeader
             // 
             resources.ApplyResources(passwordHeader, "passwordHeader");
+            passwordHeader.BackColor = Color.Transparent;
             passwordHeader.Name = "passwordHeader";
             // 
             // emailHeader
             // 
             resources.ApplyResources(emailHeader, "emailHeader");
+            emailHeader.BackColor = Color.Transparent;
             emailHeader.Name = "emailHeader";
             // 
             // ageHeader
             // 
             resources.ApplyResources(ageHeader, "ageHeader");
+            ageHeader.BackColor = Color.Transparent;
             ageHeader.Name = "ageHeader";
             // 
             // avatarHeader
             // 
             resources.ApplyResources(avatarHeader, "avatarHeader");
+            avatarHeader.BackColor = Color.Transparent;
             avatarHeader.Name = "avatarHeader";
             // 
             // label1
             // 
             resources.ApplyResources(label1, "label1");
+            label1.BackColor = Color.Transparent;
             label1.Name = "label1";
             // 
             // dateHeader

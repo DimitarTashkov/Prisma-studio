@@ -362,6 +362,7 @@
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ManageProducts";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ManageProducts";
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPrice).EndInit();

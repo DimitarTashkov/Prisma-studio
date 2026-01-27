@@ -362,6 +362,7 @@
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ManageServices";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ManageServices";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numDuration).EndInit();

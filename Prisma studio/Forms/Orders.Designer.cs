@@ -230,6 +230,7 @@
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Orders";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Orders";
             tabHistory.ResumeLayout(false);
             tabPage1.ResumeLayout(false);

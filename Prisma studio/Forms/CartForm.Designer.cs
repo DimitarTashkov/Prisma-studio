@@ -250,6 +250,7 @@
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CartForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CartForm";
             Load += CartForm_Load;
             ((System.ComponentModel.ISupportInitialize)roundPictureBox1).EndInit();

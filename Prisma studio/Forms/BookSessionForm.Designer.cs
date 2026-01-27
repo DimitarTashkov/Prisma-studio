@@ -281,6 +281,7 @@
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "BookSessionForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "BookSessionForm";
             Load += BookSessionForm_Load;
             ((System.ComponentModel.ISupportInitialize)roundPictureBox1).EndInit();

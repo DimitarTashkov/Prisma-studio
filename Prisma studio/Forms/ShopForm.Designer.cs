@@ -189,6 +189,7 @@
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ShopForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ShopForm";
             Load += ShopForm_Load;
             ((System.ComponentModel.ISupportInitialize)roundPictureBox1).EndInit();
