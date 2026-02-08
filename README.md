@@ -64,7 +64,7 @@ MS SQL Server (LocalDB)
 Clone the repository:
 
 Bash
-git clone [https://github.com/your-username/prisma-studio.git](https://github.com/your-username/prisma-studio.git)
+git clone [https://github.com/DimitarTashkov/Prisma-studio.git](https://github.com/DimitarTashkov/Prisma-studio.git)
 Open the solution: Open Prisma studio.sln in Visual Studio.
 
 Restore Packages: Right-click on the solution -> Restore NuGet Packages.
@@ -77,6 +77,6 @@ Run the Application: Press F5 or click Start.
 
 First Run (Admin Access): The application includes a Seeding logic (SeedAdmin.cs). On the first run, if the database is empty, an Admin account will be created automatically.
 
-Username: admin (or check SeedAdmin.cs)
+Username: "foulcoast" (or check SeedAdmin.cs)
 
-Password: admin123 (or check SeedAdmin.cs)
+Password: "mitko123" (or check SeedAdmin.cs)
