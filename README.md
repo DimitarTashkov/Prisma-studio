@@ -47,60 +47,60 @@ Unlike generic booking tools, Prisma Studio features a custom algorithm for real
 ### Core Features
 
 **Home Page**  
-<img src="images/home-form.png" width="600"/>
+![Home Page](images/home-form.png)
 
 **Shop Interface**  
-<img src="images/shop-form.png" width="600"/>
+![Shop Interface](images/shop-form.png)
 
 **Shopping Cart**  
-<img src="images/cart-from.png" width="600"/>
+![Shopping Cart](images/cart-from.png)
 
 **Cart Validation & Totaling**  
-<img src="images/cart-form-validation-test.png" width="600"/>
+![Cart Validation & Totaling](images/cart-form-validation-test.png)
 
 **Invoice Generation**  
-<img src="images/cart-form-invoice.png" width="600"/>
+![Invoice Generation](images/cart-form-invoice.png)
 
 **Session Booking**  
-<img src="images/book-session-form.png" width="600"/>
+![Session Booking](images/book-session-form.png)
 
 ### Administrative Tools
 
 **User Management (Admin)**  
-<img src="images/users-form.png" width="600"/>
+![User Management (Admin)](images/users-form.png)
 
 **Product Management (Admin)**  
-<img src="images/manageproducts-form.png" width="600"/>
+![Product Management (Admin)](images/manageproducts-form.png)
 
 ### User Profile & Auth
 
 **User Profile**  
-<img src="images/profie-form.png" width="600"/>
+![User Profile](images/profie-form.png)
 
 **Login Screen**  
-<img src="images/login-form.png" width="400"/>
+![Login Screen](images/login-form.png)
 
 **Register Screen**  
-<img src="images/register-form.png" width="400"/>
+![Register Screen](images/register-form.png)
 
 ### Information
 
 **About Us**  
-<img src="images/about-us-form.png" width="600"/>
+![About Us](images/about-us-form.png)
 
 **Contact Us**  
-<img src="images/contact-us-form.png" width="600"/>
+![Contact Us](images/contact-us-form.png)
 
 ### Architecture & Database
 
 **Database Relationship Diagram**  
-<img src="images/db-diagram.png" width="800"/>
+![Database Relationship Diagram](images/db-diagram.png)
 
 **Architecture Diagrams**  
-<img src="images/architecture1-4-1.png" width="400"/>
-<img src="images/architecture1-4-2.png" width="400"/>
-<img src="images/architecture1-4-3.png" width="400"/>
-<img src="images/architecture1-4-4.png" width="400"/>
+![Architecture Diagram 1](images/architecture1-4-1.png)
+![Architecture Diagram 2](images/architecture1-4-2.png)
+![Architecture Diagram 3](images/architecture1-4-3.png)
+![Architecture Diagram 4](images/architecture1-4-4.png)
 
 </div>
 </details>
