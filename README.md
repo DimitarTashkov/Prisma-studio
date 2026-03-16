@@ -44,17 +44,63 @@ Unlike generic booking tools, Prisma Studio features a custom algorithm for real
 
 <div align="center">
 
-| | |
-|:---:|:---:|
-| **Home Page**<br><img src="images/home%20form.png" width="400"/> | **Shop Interface**<br><img src="images/shop%20form.png" width="400"/> |
-| **Session Booking**<br><img src="images/book%20session%20form.png" width="400"/> | **Shopping Cart**<br><img src="images/cart%20from.png" width="400"/> |
-| **User Profile**<br><img src="images/profie%20form.png" width="400"/> | **User Management (Admin)**<br><img src="images/users%20form.png" width="400"/> |
-| **Product Management (Admin)**<br><img src="images/manageproducts%20form.png" width="400"/> | **Login Screen**<br><img src="images/login%20form.png" width="400"/> |
-| **Register Screen**<br><img src="images/register%20form.png" width="400"/> | **Contact Us**<br><img src="images/contact%20us%20form.png" width="400"/> |
+### Core Features
 
-<br>
-<b>Database Relationship Diagram</b><br>
-<img src="images/db%20diagram.png" width="800"/>
+**Home Page**  
+<img src="images/home form.png" width="600"/>
+
+**Shop Interface**  
+<img src="images/shop form.png" width="600"/>
+
+**Shopping Cart**  
+<img src="images/cart from.png" width="600"/>
+
+**Cart Validation & Totaling**  
+<img src="images/cart form validation test.png" width="600"/>
+
+**Invoice Generation**  
+<img src="images/cart form invoice.png" width="600"/>
+
+**Session Booking**  
+<img src="images/book session form.png" width="600"/>
+
+### Administrative Tools
+
+**User Management (Admin)**  
+<img src="images/users form.png" width="600"/>
+
+**Product Management (Admin)**  
+<img src="images/manageproducts form.png" width="600"/>
+
+### User Profile & Auth
+
+**User Profile**  
+<img src="images/profie form.png" width="600"/>
+
+**Login Screen**  
+<img src="images/login form.png" width="400"/>
+
+**Register Screen**  
+<img src="images/register form.png" width="400"/>
+
+### Information
+
+**About Us**  
+<img src="images/about us form.png" width="600"/>
+
+**Contact Us**  
+<img src="images/contact us form.png" width="600"/>
+
+### Architecture & Database
+
+**Database Relationship Diagram**  
+<img src="images/db diagram.png" width="800"/>
+
+**Architecture Diagrams**  
+<img src="images/architecture1-4 (1).png" width="400"/>
+<img src="images/architecture1-4 (2).png" width="400"/>
+<img src="images/architecture1-4 (3).png" width="400"/>
+<img src="images/architecture1-4 (4).png" width="400"/>
 
 </div>
 </details>
