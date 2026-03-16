@@ -38,12 +38,6 @@ Unlike generic booking tools, Prisma Studio features a custom algorithm for real
 
 ## 📸 Screenshots & Previews
 
-<details>
-<summary>Click to view the application screenshots</summary>
-<br>
-
-<div align="center">
-
 ### Core Features
 
 **Home Page**  
@@ -102,8 +96,6 @@ Unlike generic booking tools, Prisma Studio features a custom algorithm for real
 ![Architecture Diagram 3](images/architecture1-4-3.png)
 ![Architecture Diagram 4](images/architecture1-4-4.png)
 
-</div>
-</details>
 
 ---
 
