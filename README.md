@@ -5,8 +5,6 @@
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 ![EF Core](https://img.shields.io/badge/Entity_Framework_Core-512BD4?style=for-the-badge&logo=.net&logoColor=white)
 
-![Prisma Studio Home](images/home%20form.png)
-
 **Prisma Studio** is a comprehensive desktop management solution developed as a custom software project for a creative photography business. It unifies two critical workflows—**service scheduling** and **e-commerce sales**—into a single, robust Windows Forms application.
 
 Unlike generic booking tools, Prisma Studio features a custom algorithm for real-time slot calculation and a strict **N-Tier Architecture** to ensure scalability and maintainability.
@@ -17,23 +15,17 @@ Unlike generic booking tools, Prisma Studio features a custom algorithm for real
 
 ### 🛒 Integrated E-Commerce (Shop)
 
-![Shop Form](images/shop%20form.png)
-
 - **Dynamic Inventory:** Browse cameras, lenses, and accessories with real-time stock tracking.
 - **Shopping Cart:** In-memory cart system allowing users to add/remove items and view live total calculations.
 - **Order Processing:** Seamless checkout experience with automated database updates.
 
 ### 📅 Smart Booking System
 
-![Book Session Form](images/book%20session%20form.png)
-
 - **Intelligent Slot Calculation:** A custom algorithm automatically calculates available time slots based on the specific duration of the chosen service (e.g., 60 min vs 120 min sessions) and checks against existing reservations in the SQL database.
 - **Conflict Prevention:** Logic to strictly prevent double-booking or overlapping sessions.
 - **Service Catalog:** Visual catalog of services with duration and pricing details.
 
 ### 🛡️ Role-Based Access Control (RBAC)
-
-![Users Management Form](images/users%20form.png)
 
 - **Client Portal:** User-friendly interface for booking appointments and purchasing gear.
 - **Admin Dashboard:** Powerful tools for business owners to:
@@ -44,9 +36,32 @@ Unlike generic booking tools, Prisma Studio features a custom algorithm for real
 
 ---
 
-## 🏗️ Architecture & Tech Stack
+## 📸 Screenshots & Previews
 
-![Database Diagram](images/db%20diagram.png)
+<details>
+<summary>Click to view the application screenshots</summary>
+<br>
+
+<div align="center">
+
+| | |
+|:---:|:---:|
+| **Home Page**<br><img src="images/home%20form.png" width="400"/> | **Shop Interface**<br><img src="images/shop%20form.png" width="400"/> |
+| **Session Booking**<br><img src="images/book%20session%20form.png" width="400"/> | **Shopping Cart**<br><img src="images/cart%20from.png" width="400"/> |
+| **User Profile**<br><img src="images/profie%20form.png" width="400"/> | **User Management (Admin)**<br><img src="images/users%20form.png" width="400"/> |
+| **Product Management (Admin)**<br><img src="images/manageproducts%20form.png" width="400"/> | **Login Screen**<br><img src="images/login%20form.png" width="400"/> |
+| **Register Screen**<br><img src="images/register%20form.png" width="400"/> | **Contact Us**<br><img src="images/contact%20us%20form.png" width="400"/> |
+
+<br>
+<b>Database Relationship Diagram</b><br>
+<img src="images/db%20diagram.png" width="800"/>
+
+</div>
+</details>
+
+---
+
+## 🏗️ Architecture & Tech Stack
 
 The project is built using **C#** and **.NET (Windows Forms)**, adhering to clean code principles to avoid "spaghetti code" in the UI layer.
 
